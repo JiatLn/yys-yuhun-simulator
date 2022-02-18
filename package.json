@@ -10,10 +10,13 @@
     "@iconify/iconify": "^2.1.1",
     "@vitejs/plugin-vue-jsx": "^1.3.3",
     "@vue/babel-plugin-jsx": "^1.1.1",
+    "ant-design-vue": "^2.2.8",
     "axios": "^0.24.0",
     "dayjs": "^1.10.7",
     "pinia": "^2.0.9",
     "sass": "^1.48.0",
+    "unplugin-auto-import": "^0.6.0",
+    "unplugin-vue-components": "^0.17.18",
     "vue": "^3.2.25",
     "vue-router": "4"
   },
