@@ -20,7 +20,7 @@
         <a-breadcrumb-item>List</a-breadcrumb-item>
         <a-breadcrumb-item>App</a-breadcrumb-item>
       </a-breadcrumb>
-      <div class="bg-white p-[24px] min-h-[calc(100vh-187px)]">
+      <div class="bg-white h-[calc(100vh-187px)]">
         <router-view />
       </div>
     </a-layout-content>

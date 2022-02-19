@@ -17,6 +17,7 @@ specifiers:
   eslint-config-prettier: ^8.3.0
   eslint-plugin-prettier: ^4.0.0
   eslint-plugin-vue: ^8.3.0
+  lodash: ^4.17.21
   pinia: ^2.0.9
   prettier: ^2.5.1
   sass: ^1.48.0
@@ -39,6 +40,7 @@ dependencies:
   ant-design-vue: registry.npmmirror.com/ant-design-vue/2.2.8_vue@3.2.27
   axios: registry.npmmirror.com/axios/0.24.0
   dayjs: registry.npmmirror.com/dayjs/1.10.7
+  lodash: registry.npmmirror.com/lodash/4.17.21
   pinia: registry.npmmirror.com/pinia/2.0.9_typescript@4.5.4+vue@3.2.27
   sass: registry.npmmirror.com/sass/1.48.0
   unplugin-auto-import: registry.npmmirror.com/unplugin-auto-import/0.6.0_vite@2.7.12
