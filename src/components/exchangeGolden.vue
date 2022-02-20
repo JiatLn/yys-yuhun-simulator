@@ -10,7 +10,7 @@
   >
     <div class="yuhun-items">
       <div v-for="item in yuhunInfo" :key="item.id" class="yuhunItem *flex-center flex-col">
-        <div class="icon w-[120px] cursor-pointer">
+        <div class="icon w-[120px] cursor-pointer" @click="onClick(item.id)">
           <img :src="`/src/assets/images/yuhun/${item.name}.png`" class="h-full" alt="" />
         </div>
         <div class="name text-[16px]">
@@ -18,6 +18,7 @@
         </div>
       </div>
     </div>
+    <ExchangeSuit :show="showExchange" :suit-id="suitId" @close="showExchange = false" />
   </a-modal>
 </template>
 
@@ -43,6 +44,14 @@
   const onCancel = () => {
     emits('close');
     visible.value = false;
+  };
+
+  const suitId = ref<number>(0);
+  const showExchange = ref<boolean>(false);
+
+  const onClick = (id: number) => {
+    suitId.value = id;
+    showExchange.value = true;
   };
 </script>
 

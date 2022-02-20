@@ -16,6 +16,7 @@ declare module 'vue' {
     AppIcon: typeof import('./components/common/AppIcon.vue')['default']
     EntryItem: typeof import('./components/entryItem.vue')['default']
     ExchangeGolden: typeof import('./components/exchangeGolden.vue')['default']
+    ExchangeSuit: typeof import('./components/exchangeSuit.vue')['default']
   }
 }
 
