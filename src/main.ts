@@ -10,6 +10,8 @@ import '@purge-icons/generated';
 import 'virtual:windi.css';
 import '@/assets/styles/_global.scss';
 
+import 'ant-design-vue/es/message/style/css';
+
 const app = createApp(App);
 const pinia = createPinia();
 

@@ -9,7 +9,7 @@
     :style="{ padding: 0 }"
     @cancel="onCancel"
   >
-    <div class="content flex h-[400px] bg-[#472e2c] text-white">
+    <div class="content">
       <div class="left *flex-center flex-1">
         <div class="icon w-[200px] cursor-pointer">
           <img :src="`/src/assets/images/yuhun/${currSuit?.name}.png`" class="h-full" alt="" />
@@ -30,7 +30,7 @@
           <div class="name">{{ currSuit?.name }}</div>
         </div>
         <div class="right__bottom *flex-center flex-col border-t flex-1 p-4">
-          <div class="detail text-[16px] flex-1 space-y-1">
+          <div class="detail text-[16px] flex-1 space-y-1 self-start">
             <p>2件套属性：{{ currSuit?.suit2 }}</p>
             <p v-show="currSuit?.suit4.length">4件套属性：{{ currSuit?.suit4 }}</p>
           </div>
@@ -43,6 +43,8 @@
 
 <script setup lang="ts">
   import { yuhunInfo } from '@/data/yuhunInfo';
+  import useAccountStore from '@/store/modules/useAccountStore';
+  import { message } from 'ant-design-vue/es';
 
   const props = defineProps<{
     show: boolean;
@@ -71,15 +73,19 @@
     visible.value = false;
   };
 
+  const accountStore = useAccountStore();
   const onExchange = () => {
     if (currPos.value === 0) {
+      message.warning('请选择购买御魂的位置。');
       return;
     }
+    accountStore.updateAccount('golden', -50);
   };
 </script>
 
 <style scoped lang="scss">
   .content {
+    @apply flex h-[440px] bg-[#472e2c] text-white select-none;
     font-family: '楷体';
   }
 

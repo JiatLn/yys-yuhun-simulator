@@ -62,6 +62,7 @@ export default ({ mode }) => {
       preprocessorOptions: {
         scss: {
           charset: false,
+          additionalData: '@import "./src/assets/styles/mixin.scss";',
         },
       },
     },

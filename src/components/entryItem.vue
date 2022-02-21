@@ -25,16 +25,18 @@
 </template>
 
 <script setup lang="ts">
+  import type { ICurrencyType } from '@/store/modules/useAccountStore';
+
   const props = defineProps<{
     title: string;
     icon: string;
     account: number;
     unit: number;
-    type: string;
+    type: ICurrencyType;
   }>();
 
   const emits = defineEmits<{
-    (e: 'exchange', type: string): void;
+    (e: 'exchange', type: ICurrencyType): void;
   }>();
 
   const onExchange = () => {

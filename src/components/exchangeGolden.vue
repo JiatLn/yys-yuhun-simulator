@@ -56,9 +56,8 @@
 </script>
 
 <style scoped lang="scss">
-  @import '@/assets/styles/mixin.scss';
   .yuhun-items {
     @include scroll();
-    @apply h-[520px] grid grid-cols-5 gap-y-4 grid-cols-5 pb-8;
+    @apply h-[520px] grid grid-cols-5 gap-y-4 grid-cols-5 py-6;
   }
 </style>
