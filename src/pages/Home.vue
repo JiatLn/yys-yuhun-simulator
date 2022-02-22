@@ -78,7 +78,7 @@
   .warpper {
     background: url(../assets/icons/bg.png);
     .entry-items {
-      @apply *flex-center flex-wrap gap-[100px] overflow-auto py-10;
+      @apply grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-[100px] overflow-auto py-10;
       @include scroll();
     }
   }
