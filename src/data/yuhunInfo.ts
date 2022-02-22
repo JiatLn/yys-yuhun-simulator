@@ -1,6 +1,15 @@
 import { EAttrType } from '@/utils/types';
 
-export const yuhunInfo = [
+export interface IYuhun {
+  name: string;
+  id: number;
+  type: EAttrType | '首领御魂';
+  suit2: string;
+  suit4: string;
+  isWater?: boolean;
+}
+
+export const allYuhunSet: IYuhun[] = [
   {
     name: '招财猫',
     id: 300010,
@@ -314,6 +323,7 @@ export const yuhunInfo = [
   },
   {
     name: '遗念火',
+    isWater: true,
     id: 300079,
     type: EAttrType.EFFECT_HIT,
     suit2: '效果命中15%',
@@ -322,6 +332,7 @@ export const yuhunInfo = [
   },
   {
     name: '共潜',
+    isWater: true,
     id: 300080,
     type: EAttrType.EFFECT_RESIST,
     suit2: '效果抵抗15%',
@@ -329,6 +340,7 @@ export const yuhunInfo = [
   },
   {
     name: '恶楼',
+    isWater: true,
     id: 300081,
     type: EAttrType.HP_RATE,
     suit2: '生命加成15%',
@@ -336,6 +348,7 @@ export const yuhunInfo = [
   },
   {
     name: '贝吹坊',
+    isWater: true,
     id: 300082,
     type: EAttrType.ATTACK_RATE,
     suit2: '攻击加成15%',
@@ -343,6 +356,7 @@ export const yuhunInfo = [
   },
   {
     name: '海月火玉',
+    isWater: true,
     id: 300083,
     type: EAttrType.CRIT_RATE,
     suit2: '暴击15%',
@@ -350,6 +364,7 @@ export const yuhunInfo = [
   },
   {
     name: '出世螺',
+    isWater: true,
     id: 300084,
     type: EAttrType.DEF_RATE,
     suit2: '防御加成30%',
@@ -358,54 +373,78 @@ export const yuhunInfo = [
   },
 ];
 
-export const mainAttrOpts = [
+export const baseYuhunSet = allYuhunSet.filter((item) => item.type !== '首领御魂');
+
+export const chiefYuhunSet = allYuhunSet.filter((item) => item.type === '首领御魂');
+
+export const waterYuhunSet = allYuhunSet.filter((item) => item.isWater);
+
+export interface IAttrInfo {
+  label: string;
+  value: EAttrType;
+  growth: [number, number];
+}
+
+export const mainAttrOpts: IAttrInfo[] = [
   {
     label: '攻击加成',
     value: EAttrType.ATTACK_RATE,
+    growth: [2.4, 3],
   },
   {
     label: '速度',
     value: EAttrType.SPEED,
+    growth: [2.4, 3],
   },
   {
     label: '暴击',
     value: EAttrType.CRIT_RATE,
+    growth: [2.4, 3],
   },
   {
     label: '暴击伤害',
     value: EAttrType.CRIT_POWER,
+    growth: [3.2, 4],
   },
   {
     label: '防御加成',
     value: EAttrType.DEF_RATE,
+    growth: [2.4, 3],
   },
   {
     label: '生命加成',
     value: EAttrType.HP_RATE,
+    growth: [2.4, 3],
   },
   {
     label: '效果命中',
     value: EAttrType.EFFECT_HIT,
+    growth: [3.2, 4],
   },
   {
     label: '效果抵抗',
     value: EAttrType.EFFECT_RESIST,
+    growth: [3.2, 4],
   },
 ];
 
-export const randomAttrOpts = [
+// TODO: 小属性的成长区间有待考证
+export const randomAttrOpts: IAttrInfo[] = [
   ...mainAttrOpts,
   {
     label: '攻击',
     value: EAttrType.ATTACK,
+    growth: [24, 27],
   },
   {
     label: '生命',
     value: EAttrType.HP,
+    growth: [24, 27],
   },
   {
     label: '防御',
     value: EAttrType.DEF,
+    growth: [3, 5],
   },
 ];
 

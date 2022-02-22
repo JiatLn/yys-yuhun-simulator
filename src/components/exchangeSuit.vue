@@ -42,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-  import { yuhunInfo } from '@/data/yuhunInfo';
+  import { allYuhunSet } from '@/data/yuhunInfo';
   import useAccountStore from '@/store/modules/useAccountStore';
   import { message } from 'ant-design-vue/es';
 
@@ -52,7 +52,7 @@
   }>();
 
   const currSuit = computed(() => {
-    return yuhunInfo.find((item) => item.id === props.suitId);
+    return allYuhunSet.find((item) => item.id === props.suitId);
   });
   const currPos = ref<number>(0);
 

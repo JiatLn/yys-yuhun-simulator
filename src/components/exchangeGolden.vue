@@ -9,7 +9,7 @@
     @cancel="onCancel"
   >
     <div class="yuhun-items">
-      <div v-for="item in yuhunInfo" :key="item.id" class="yuhunItem *flex-center flex-col">
+      <div v-for="item in allYuhunSet" :key="item.id" class="yuhunItem *flex-center flex-col">
         <div class="icon w-[120px] cursor-pointer" @click="onClick(item.id)">
           <img :src="`/src/assets/images/yuhun/${item.name}.png`" class="h-full" alt="" />
         </div>
@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-  import { yuhunInfo } from '@/data/yuhunInfo';
+  import { allYuhunSet } from '@/data/yuhunInfo';
 
   const props = defineProps<{
     show: boolean;

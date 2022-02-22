@@ -19,7 +19,7 @@
 <script setup lang="ts">
   import purple from '@/assets/icons/purple.png';
   import golden from '@/assets/icons/golden.png';
-  import chieftain from '@/assets/icons/chieftain.png';
+  import chief from '@/assets/icons/chief.png';
   import water from '@/assets/icons/water.png';
   import type { ICurrencyType } from '@/store/modules/useAccountStore';
   import useAccountStore from '@/store/modules/useAccountStore';
@@ -52,9 +52,9 @@
     {
       title: '首领的御魂礼盒',
       unit: 50,
-      icon: chieftain,
-      type: 'chieftain',
-      account: accountStore.chieftain,
+      icon: chief,
+      type: 'chief',
+      account: accountStore.chief,
     },
     {
       title: '海汐的御魂礼盒',

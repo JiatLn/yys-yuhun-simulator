@@ -12,7 +12,6 @@ declare module 'vue' {
     ALayoutHeader: typeof import('ant-design-vue/es')['LayoutHeader']
     AMenu: typeof import('ant-design-vue/es')['Menu']
     AMenuItem: typeof import('ant-design-vue/es')['MenuItem']
-    AModal: typeof import('ant-design-vue/es')['Modal']
     AppIcon: typeof import('./components/common/AppIcon.vue')['default']
     EntryItem: typeof import('./components/entryItem.vue')['default']
     ExchangeGolden: typeof import('./components/exchangeGolden.vue')['default']

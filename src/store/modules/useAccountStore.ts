@@ -1,12 +1,12 @@
 import { defineStore } from 'pinia';
 
-export type ICurrencyType = 'golden' | 'purple' | 'water' | 'chieftain';
+export type ICurrencyType = 'golden' | 'purple' | 'water' | 'chief';
 
 export interface IAccount {
   golden: number;
   purple: number;
   water: number;
-  chieftain: number;
+  chief: number;
 }
 
 export const ACCOUNT_KEY = 'account';
@@ -18,7 +18,7 @@ const useAccountStore = defineStore({
       golden: 10000,
       purple: 6000,
       water: 8000,
-      chieftain: 3000,
+      chief: 3000,
     };
   },
   actions: {
