@@ -18,7 +18,7 @@
     "sass": "^1.48.0",
     "unplugin-auto-import": "^0.6.0",
     "unplugin-vue-components": "^0.17.18",
-    "vue": "^3.2.25",
+    "vue": "3.2.31",
     "vue-router": "4"
   },
   "devDependencies": {

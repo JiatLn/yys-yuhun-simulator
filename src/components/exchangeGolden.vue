@@ -10,7 +10,7 @@
   >
     <div class="yuhun-items">
       <div v-for="item in allYuhunSet" :key="item.id" class="yuhunItem *flex-center flex-col">
-        <div class="icon w-[120px] cursor-pointer" @click="onClick(item.id)">
+        <div class="w-[120px] cursor-pointer" @click="onClick(item.id)">
           <img :src="`/src/assets/images/yuhun/${item.name}.png`" class="h-full" alt="" />
         </div>
         <div class="name text-[16px]">

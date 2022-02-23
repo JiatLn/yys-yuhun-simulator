@@ -65,8 +65,11 @@
     },
   ]);
 
-  const show = ref<Record<string, boolean>>({
+  const show = ref<Record<ICurrencyType, boolean>>({
     golden: false,
+    water: false,
+    purple: false,
+    chief: false,
   });
 
   const onExchange = (type: ICurrencyType) => {

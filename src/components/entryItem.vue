@@ -3,13 +3,8 @@
     <div class="pic w-[120px] pb-4">
       <img src="../assets/icons/icon-yuhun.png" class="w-full h-full" alt="" />
     </div>
-    <div class="level *flex-center pb-4">
-      <img src="../assets/icons/level.png" alt="" />
-      <img src="../assets/icons/level.png" alt="" />
-      <img src="../assets/icons/level.png" alt="" />
-      <img src="../assets/icons/level.png" alt="" />
-      <img src="../assets/icons/level.png" alt="" />
-      <img src="../assets/icons/level.png" alt="" />
+    <div class="*flex-center pb-4">
+      <img v-for="i in 6" :key="i" src="../assets/icons/level.png" alt="" />
     </div>
     <div class="text-[22px] py-16px font-mono font-semibold">
       {{ props.title }}
