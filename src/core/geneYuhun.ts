@@ -4,11 +4,9 @@ import {
   randomAttrOpts,
   waterYuhunSet,
   chiefYuhunSet,
-  mainAttrWithPos,
 } from '@/data/yuhunInfo';
 import { pickN } from '@/utils/pick';
-import type { EAttrType } from '@/utils/types';
-import type { Pos } from './types';
+import type { EAttrType, Pos, IAttr, IYuhun, IAttrInfo } from '@/core/types';
 
 export interface IYuhunParams {
   pos?: Pos;
@@ -16,10 +14,16 @@ export interface IYuhunParams {
   geneType?: GeneType;
   mainAttr: EAttrType;
 }
+export interface IGeneYuhun {
+  pos: Pos;
+  suit: IYuhun;
+  randomAttrs: IAttr[];
+  mainAttr: IAttrInfo['label'];
+}
 
 export type GeneType = 'all' | 'chief' | 'water' | 'base';
 
-export const geneYuhun = (params: IYuhunParams) => {
+export const geneYuhun = (params: IYuhunParams): IGeneYuhun => {
   // 位置
   const pos = params.pos ?? (~~(Math.random() * 6 + 1) as Pos);
   // 御魂类型
@@ -39,11 +43,11 @@ export const geneYuhun = (params: IYuhunParams) => {
       chooseList = allYuhunSet;
       break;
   }
-  const suit = chooseList.find((item) => item.id === params.suitId) ?? pickN(chooseList)[0];
+  const suit = chooseList.find((item) => item.id === params.suitId) ?? pickN(chooseList);
   // 随机属性 2-3条
   const randomAttrs = geneRandomAttrs();
   // 随机主属性
-  const mainAttr = pickN(mainAttrWithPos(pos))[0].label;
+  const mainAttr = pickN(mainAttrWithPos(pos)).label;
   return {
     pos,
     suit,
@@ -52,7 +56,7 @@ export const geneYuhun = (params: IYuhunParams) => {
   };
 };
 
-const geneRandomAttrs = () => {
+const geneRandomAttrs = (): IAttr[] => {
   let attrNum = ~~(Math.random() * 3 + 2);
   return pickN(randomAttrOpts, attrNum).map((item) => ({
     name: item.label,
@@ -62,4 +66,8 @@ const geneRandomAttrs = () => {
 
 const randVal = (growth: [number, number]) => {
   return growth[0] + Math.random() * (growth[1] - growth[0]);
+};
+
+const mainAttrWithPos = (pos: Pos) => {
+  return randomAttrOpts.filter((item) => item.posList.includes(pos));
 };

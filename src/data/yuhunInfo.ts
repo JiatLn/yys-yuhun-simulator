@@ -1,14 +1,5 @@
-import type { Pos } from '@/core/types';
-import { EAttrType } from '@/utils/types';
-
-export interface IYuhun {
-  name: string;
-  id: number;
-  type: EAttrType | '首领御魂';
-  suit2: string;
-  suit4: string;
-  isWater?: boolean;
-}
+import type { IAttrInfo, IYuhun } from '@/core/types';
+import { EAttrType } from '@/core/types';
 
 export const allYuhunSet: IYuhun[] = [
   {
@@ -380,13 +371,6 @@ export const chiefYuhunSet = allYuhunSet.filter((item) => item.type === '首领�
 
 export const waterYuhunSet = allYuhunSet.filter((item) => item.isWater);
 
-export interface IAttrInfo {
-  label: string;
-  value: EAttrType;
-  growth: [number, number];
-  posList: Pos[];
-}
-
 export const mainAttrOpts: IAttrInfo[] = [
   {
     label: '攻击加成',
@@ -487,7 +471,3 @@ export const suitTypeOpts = [
     value: EAttrType.EFFECT_RESIST,
   },
 ];
-
-export const mainAttrWithPos = (pos: Pos) => {
-  return randomAttrOpts.filter((item) => item.posList.includes(pos));
-};

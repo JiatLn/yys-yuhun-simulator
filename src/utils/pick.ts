@@ -1,4 +1,8 @@
-function pickN<T extends any>(arr: T[], n: number = 1) {
+function pickN<T>(arr: T[]): T;
+function pickN<T>(arr: T[], n: number): T[];
+
+function pickN<T>(arr: T[], n?: number): T | T[] {
+  n = n ?? 1;
   if (n > arr.length) {
     throw new Error('pickN: n is larger than arr.length');
   }
@@ -12,6 +16,7 @@ function pickN<T extends any>(arr: T[], n: number = 1) {
     tmp[randomIdx] = tmp[len];
     pickNum--;
   }
+  if (n === 1) return pickList[0];
   return pickList;
 }
 
