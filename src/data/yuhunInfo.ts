@@ -1,3 +1,4 @@
+import type { Pos } from '@/core/types';
 import { EAttrType } from '@/utils/types';
 
 export interface IYuhun {
@@ -383,6 +384,7 @@ export interface IAttrInfo {
   label: string;
   value: EAttrType;
   growth: [number, number];
+  posList: Pos[];
 }
 
 export const mainAttrOpts: IAttrInfo[] = [
@@ -390,41 +392,49 @@ export const mainAttrOpts: IAttrInfo[] = [
     label: '攻击加成',
     value: EAttrType.ATTACK_RATE,
     growth: [2.4, 3],
+    posList: [2, 4, 6],
   },
   {
     label: '速度',
     value: EAttrType.SPEED,
     growth: [2.4, 3],
+    posList: [2],
   },
   {
     label: '暴击',
     value: EAttrType.CRIT_RATE,
     growth: [2.4, 3],
+    posList: [6],
   },
   {
     label: '暴击伤害',
     value: EAttrType.CRIT_POWER,
     growth: [3.2, 4],
+    posList: [6],
   },
   {
     label: '防御加成',
     value: EAttrType.DEF_RATE,
     growth: [2.4, 3],
+    posList: [2, 4, 6],
   },
   {
     label: '生命加成',
     value: EAttrType.HP_RATE,
     growth: [2.4, 3],
+    posList: [2, 4, 6],
   },
   {
     label: '效果命中',
     value: EAttrType.EFFECT_HIT,
     growth: [3.2, 4],
+    posList: [4],
   },
   {
     label: '效果抵抗',
     value: EAttrType.EFFECT_RESIST,
     growth: [3.2, 4],
+    posList: [4],
   },
 ];
 
@@ -435,16 +445,19 @@ export const randomAttrOpts: IAttrInfo[] = [
     label: '攻击',
     value: EAttrType.ATTACK,
     growth: [24, 27],
+    posList: [1],
   },
   {
     label: '生命',
     value: EAttrType.HP,
     growth: [24, 27],
+    posList: [5],
   },
   {
     label: '防御',
     value: EAttrType.DEF,
     growth: [3, 5],
+    posList: [3],
   },
 ];
 
@@ -461,7 +474,6 @@ export const suitTypeOpts = [
     label: '防御加成',
     value: EAttrType.DEF_RATE,
   },
-
   {
     label: '生命加成',
     value: EAttrType.HP_RATE,
@@ -475,3 +487,7 @@ export const suitTypeOpts = [
     value: EAttrType.EFFECT_RESIST,
   },
 ];
+
+export const mainAttrWithPos = (pos: Pos) => {
+  return randomAttrOpts.filter((item) => item.posList.includes(pos));
+};

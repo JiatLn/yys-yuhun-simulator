@@ -1,6 +1,6 @@
 import type { EAttrType } from '@/utils/types';
 
-export const attrMap: {
+export const AttrMap: {
   [key in EAttrType]: string;
 } = {
   Attack: '攻击',
