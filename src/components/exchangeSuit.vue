@@ -32,9 +32,7 @@
           <div class="mini-icon">
             <img :src="`/src/assets/images/yuhun-mini/${currSuit?.id}.png`" alt="" />
           </div>
-          <div class="*flex-center pt-2 pb-4">
-            <img v-for="i in 6" :key="i" src="../assets/icons/level.png" alt="" />
-          </div>
+          <LevelCom class="pt-2" />
           <div class="text-center opacity-50 text-[16px] mb-4">
             {{ currSuit?.name + (currPos > 0 ? '·' + posOpts[currPos - 1].label : '') }}
           </div>
@@ -55,13 +53,16 @@
       </div>
     </div>
   </a-modal>
+  <ExchangeResult :result="showYuhun" @close="showYuhun = null" />
 </template>
 
 <script setup lang="ts">
+  import type { IGeneYuhun } from '@/core/geneYuhun';
   import { geneYuhun } from '@/core/geneYuhun';
   import type { Pos } from '@/core/types';
-  import { allYuhunSet } from '@/data/yuhunInfo';
+  import { allYuhunSet, posOpts } from '@/data/yuhunInfo';
   import useAccountStore from '@/store/modules/useAccountStore';
+  import useYuhunStore from '@/store/modules/useYuhunStore';
   import { message } from 'ant-design-vue/es';
 
   const props = defineProps<{
@@ -82,49 +83,6 @@
     }
   );
 
-  const posOpts = ref<Record<string, any>[]>([
-    {
-      pos: 1,
-      label: '一号位',
-      tips: '固定属性为攻击',
-      rotate: 0,
-    },
-    {
-      pos: 2,
-      label: '二号位',
-      tips: '固定属性从攻击加成、防御加成、生命加成、速度中随机',
-      rotate: -45,
-    },
-    {
-      pos: 3,
-      label: '三号位',
-      tips: '固定属性为防御',
-      rotate: -90,
-    },
-    {
-      pos: 4,
-      label: '四号位',
-      tips: '固定属性从攻击加成、防御加成、生命加成、效果命中、效果抵抗中随机',
-      rotate: 180,
-    },
-    {
-      pos: 5,
-      label: '五号位',
-      tips: '固定属性为生命',
-      rotate: 135,
-    },
-    {
-      pos: 6,
-      label: '六号位',
-      tips: '固定属性从攻击加成、防御加成、生命加成、暴击、暴击伤害中随机',
-      rotate: 90,
-    },
-  ]);
-
-  // const rotateDeg = computed(() => {
-  //   return (posOpts.value[currPos.value - 1]?.rotate ?? 0) + 'deg';
-  // });
-
   const emits = defineEmits<{
     (e: 'close'): void;
   }>();
@@ -135,6 +93,8 @@
     visible.value = false;
   };
 
+  const yuhunStore = useYuhunStore();
+  const showYuhun = ref<IGeneYuhun | null>(null);
   const accountStore = useAccountStore();
   const onExchange = () => {
     if (currPos.value === 0) {
@@ -142,11 +102,11 @@
       return;
     }
     accountStore.updateAccount('golden', -50);
-    let newYuhun = geneYuhun({
+    showYuhun.value = geneYuhun({
       suitId: props.suitId,
       pos: currPos.value,
     });
-    console.log(newYuhun);
+    yuhunStore.addYuhun(showYuhun.value);
   };
 </script>
 

@@ -22,6 +22,7 @@ specifiers:
   prettier: ^2.5.1
   sass: ^1.48.0
   typescript: ^4.4.4
+  ulid: ^2.3.0
   unplugin-auto-import: ^0.6.0
   unplugin-vue-components: ^0.17.18
   vite: ^2.7.2
@@ -43,6 +44,7 @@ dependencies:
   lodash: registry.npmmirror.com/lodash/4.17.21
   pinia: registry.npmmirror.com/pinia/2.0.9_typescript@4.5.4+vue@3.2.31
   sass: registry.npmmirror.com/sass/1.48.0
+  ulid: registry.npmmirror.com/ulid/2.3.0
   unplugin-auto-import: registry.npmmirror.com/unplugin-auto-import/0.6.0_vite@2.7.12
   unplugin-vue-components: registry.npmmirror.com/unplugin-vue-components/0.17.18_vite@2.7.12+vue@3.2.31
   vue: registry.npmmirror.com/vue/3.2.31
@@ -3419,6 +3421,13 @@ packages:
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
+
+  registry.npmmirror.com/ulid/2.3.0:
+    resolution: {integrity: sha512-keqHubrlpvT6G2wH0OEfSW4mquYRcbe/J8NMmveoQOjUqmo+hXtO+ORCpWhdbZ7k72UtY61BL7haGxW6enBnjw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ulid/-/ulid-2.3.0.tgz}
+    name: ulid
+    version: 2.3.0
+    hasBin: true
+    dev: false
 
   registry.npmmirror.com/unplugin-auto-import/0.6.0_vite@2.7.12:
     resolution: {integrity: sha512-joItLHCozByEsKawhFTfterlZOp8EYIAOpuWKx5xq0SdLOQtvbEcfkdhLxWIsMOH9yXNY5vnXYRONW0XxjVDlg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/unplugin-auto-import/-/unplugin-auto-import-0.6.0.tgz}

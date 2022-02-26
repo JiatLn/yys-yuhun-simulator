@@ -6,19 +6,23 @@ import {
   chiefYuhunSet,
 } from '@/data/yuhunInfo';
 import { pickN } from '@/utils/pick';
-import type { EAttrType, Pos, IAttr, IYuhun, IAttrInfo } from '@/core/types';
+import type { Pos, IAttr, IYuhun, IAttrInfo } from '@/core/types';
+import { EAttrType } from '@/core/types';
+import { round } from '@/utils/format';
+import { ulid } from 'ulid';
 
 export interface IYuhunParams {
   pos?: Pos;
   suitId?: number;
   geneType?: GeneType;
-  mainAttr: EAttrType;
 }
 export interface IGeneYuhun {
   pos: Pos;
   suit: IYuhun;
   randomAttrs: IAttr[];
-  mainAttr: IAttrInfo['label'];
+  mainAttr: IAttrInfo;
+  isLock: boolean;
+  ulid: string;
 }
 
 export type GeneType = 'all' | 'chief' | 'water' | 'base';
@@ -47,13 +51,16 @@ export const geneYuhun = (params: IYuhunParams): IGeneYuhun => {
   // 随机属性 2-3条
   const randomAttrs = geneRandomAttrs();
   // 随机主属性
-  const mainAttr = pickN(mainAttrWithPos(pos)).label;
-  return {
+  const mainAttr = pickN(mainAttrWithPos(pos));
+  const result: IGeneYuhun = {
     pos,
     suit,
     randomAttrs,
     mainAttr,
+    isLock: false,
+    ulid: ulid(),
   };
+  return result;
 };
 
 const geneRandomAttrs = (): IAttr[] => {
@@ -61,6 +68,7 @@ const geneRandomAttrs = (): IAttr[] => {
   return pickN(randomAttrOpts, attrNum).map((item) => ({
     name: item.label,
     val: randVal(item.growth),
+    type: item.value,
   }));
 };
 
@@ -70,4 +78,22 @@ const randVal = (growth: [number, number]) => {
 
 const mainAttrWithPos = (pos: Pos) => {
   return randomAttrOpts.filter((item) => item.posList.includes(pos));
+};
+
+export const getValueWithFmt = (value: number, type: EAttrType, digit: number = 4) => {
+  if (value === 0) return '-';
+  if (
+    [
+      EAttrType.CRIT_RATE,
+      EAttrType.CRIT_POWER,
+      EAttrType.ATTACK_RATE,
+      EAttrType.EFFECT_HIT,
+      EAttrType.EFFECT_RESIST,
+      EAttrType.HP_RATE,
+      EAttrType.DEF_RATE,
+    ].includes(type)
+  ) {
+    return `${round(value, digit)}%`;
+  }
+  return `${round(value, digit)}`;
 };

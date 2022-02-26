@@ -367,6 +367,10 @@ export const allYuhunSet: IYuhun[] = [
 
 export const baseYuhunSet = allYuhunSet.filter((item) => item.type !== '首领御魂');
 
+export const goldenYuhunSet = allYuhunSet.filter(
+  (item) => item.type !== '首领御魂' && !item.isWater
+);
+
 export const chiefYuhunSet = allYuhunSet.filter((item) => item.type === '首领御魂');
 
 export const waterYuhunSet = allYuhunSet.filter((item) => item.isWater);
@@ -377,48 +381,56 @@ export const mainAttrOpts: IAttrInfo[] = [
     value: EAttrType.ATTACK_RATE,
     growth: [2.4, 3],
     posList: [2, 4, 6],
+    mainVal: '55%',
   },
   {
     label: '速度',
     value: EAttrType.SPEED,
     growth: [2.4, 3],
     posList: [2],
+    mainVal: '57',
   },
   {
     label: '暴击',
     value: EAttrType.CRIT_RATE,
     growth: [2.4, 3],
     posList: [6],
+    mainVal: '55%',
   },
   {
     label: '暴击伤害',
     value: EAttrType.CRIT_POWER,
     growth: [3.2, 4],
     posList: [6],
+    mainVal: '89%',
   },
   {
     label: '防御加成',
     value: EAttrType.DEF_RATE,
     growth: [2.4, 3],
     posList: [2, 4, 6],
+    mainVal: '55%',
   },
   {
     label: '生命加成',
     value: EAttrType.HP_RATE,
     growth: [2.4, 3],
     posList: [2, 4, 6],
+    mainVal: '55%',
   },
   {
     label: '效果命中',
     value: EAttrType.EFFECT_HIT,
     growth: [3.2, 4],
     posList: [4],
+    mainVal: '55%',
   },
   {
     label: '效果抵抗',
     value: EAttrType.EFFECT_RESIST,
     growth: [3.2, 4],
     posList: [4],
+    mainVal: '55%',
   },
 ];
 
@@ -430,18 +442,21 @@ export const randomAttrOpts: IAttrInfo[] = [
     value: EAttrType.ATTACK,
     growth: [24, 27],
     posList: [1],
+    mainVal: '486',
   },
   {
     label: '生命',
     value: EAttrType.HP,
     growth: [24, 27],
     posList: [5],
+    mainVal: '2052',
   },
   {
     label: '防御',
     value: EAttrType.DEF,
     growth: [3, 5],
     posList: [3],
+    mainVal: '104',
   },
 ];
 
@@ -469,5 +484,44 @@ export const suitTypeOpts = [
   {
     label: '效果抵抗',
     value: EAttrType.EFFECT_RESIST,
+  },
+];
+
+export const posOpts: Record<string, any>[] = [
+  {
+    pos: 1,
+    label: '一号位',
+    tips: '固定属性为攻击',
+    rotate: 0,
+  },
+  {
+    pos: 2,
+    label: '二号位',
+    tips: '固定属性从攻击加成、防御加成、生命加成、速度中随机',
+    rotate: -45,
+  },
+  {
+    pos: 3,
+    label: '三号位',
+    tips: '固定属性为防御',
+    rotate: -90,
+  },
+  {
+    pos: 4,
+    label: '四号位',
+    tips: '固定属性从攻击加成、防御加成、生命加成、效果命中、效果抵抗中随机',
+    rotate: 180,
+  },
+  {
+    pos: 5,
+    label: '五号位',
+    tips: '固定属性为生命',
+    rotate: 135,
+  },
+  {
+    pos: 6,
+    label: '六号位',
+    tips: '固定属性从攻击加成、防御加成、生命加成、暴击、暴击伤害中随机',
+    rotate: 90,
   },
 ];

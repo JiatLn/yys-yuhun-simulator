@@ -3,6 +3,7 @@ export interface IAttrInfo {
   value: EAttrType;
   growth: [number, number];
   posList: Pos[];
+  mainVal: string;
 }
 
 export interface IYuhun {
@@ -19,6 +20,7 @@ export type Pos = 1 | 2 | 3 | 4 | 5 | 6;
 export interface IAttr {
   name: string;
   val: number;
+  type: EAttrType;
 }
 
 export enum EAttrType {

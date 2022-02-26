@@ -3,9 +3,7 @@
     <div class="pic w-[120px] pb-4">
       <img src="../assets/icons/icon-yuhun.png" class="w-full h-full" alt="" />
     </div>
-    <div class="*flex-center pb-4">
-      <img v-for="i in 6" :key="i" src="../assets/icons/level.png" alt="" />
-    </div>
+    <LevelCom />
     <div class="text-[22px] py-16px font-mono font-semibold">
       {{ props.title }}
     </div>

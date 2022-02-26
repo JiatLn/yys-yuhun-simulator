@@ -16,6 +16,7 @@
     "lodash": "^4.17.21",
     "pinia": "^2.0.9",
     "sass": "^1.48.0",
+    "ulid": "^2.3.0",
     "unplugin-auto-import": "^0.6.0",
     "unplugin-vue-components": "^0.17.18",
     "vue": "3.2.31",
