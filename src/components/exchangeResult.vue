@@ -106,7 +106,7 @@
   const onLock = (e: Event) => {
     e.stopPropagation();
     isLock.value = !isLock.value;
-    yuhunStore.updateLock(props.result!.ulid, isLock.value);
+    yuhunStore.updateLock(props.result!.ulid);
   };
 </script>
 

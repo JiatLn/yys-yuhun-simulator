@@ -1,7 +1,7 @@
 import type { ScoreType } from '@/core/types';
 import { EAttrType } from '@/core/types';
 
-export const AttrMap: Map<EAttrType, string> = new Map([
+export const AttrMap: Map<EAttrType | undefined, string> = new Map([
   [EAttrType.ATTACK, '攻击'],
   [EAttrType.ATTACK_RATE, '攻击加成'],
   [EAttrType.CRIT_POWER, '暴击伤害'],

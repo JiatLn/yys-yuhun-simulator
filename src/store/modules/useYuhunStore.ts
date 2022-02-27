@@ -18,18 +18,24 @@ const useYuhunStore = defineStore({
     yuhunCount(state) {
       return state.geneList.length;
     },
+    getCountById(state) {
+      return (id: number) => state.geneList.filter((item) => item.suit.id === id).length;
+    },
     lockCount(state) {
       return state.geneList.filter((item) => item.isLock).length;
+    },
+    getYuhunById(state) {
+      return (id: number): IGeneYuhun[] => state.geneList.filter((item) => item.suit.id === id);
     },
   },
   actions: {
     addYuhun(yuhun: IGeneYuhun) {
       this.geneList.push(yuhun);
     },
-    updateLock(ulid: string, isLock: boolean) {
+    updateLock(ulid: string) {
       let idx = this.geneList.findIndex((item) => item.ulid === ulid);
       if (idx !== -1) {
-        this.geneList[idx].isLock = isLock;
+        this.geneList[idx].isLock = !this.geneList[idx].isLock;
       }
     },
   },

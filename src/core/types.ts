@@ -9,10 +9,11 @@ export interface IAttrInfo {
 export interface IYuhun {
   name: string;
   id: number;
-  type: EAttrType | '首领御魂';
+  type?: EAttrType;
   suit2: string;
   suit4: string;
   isWater?: boolean;
+  isChief?: boolean;
 }
 
 export type Pos = 1 | 2 | 3 | 4 | 5 | 6;

@@ -9,9 +9,12 @@
         mode="horizontal"
         class="line-height-[64px]"
       >
-        <a-menu-item key="1">秘魂屋</a-menu-item>
-        <a-menu-item key="2">仓库</a-menu-item>
-        <a-menu-item key="3">nav 3</a-menu-item>
+        <a-menu-item key="Home">
+          <router-link :to="{ name: 'Home' }">秘魂屋</router-link>
+        </a-menu-item>
+        <a-menu-item key="Store">
+          <router-link :to="{ name: 'Store' }">仓库</router-link>
+        </a-menu-item>
       </a-menu>
     </a-layout-header>
     <a-layout-content class="px-[50px]">
@@ -29,7 +32,17 @@
 </template>
 
 <script lang="ts" setup>
-  const selectedKeys = ref<string[]>(['1']);
+  import { useRoute } from 'vue-router';
+
+  const selectedKeys = ref<string[]>([]);
+
+  const route = useRoute();
+  watch(
+    () => route.name,
+    () => {
+      selectedKeys.value = [route.name as string];
+    }
+  );
 </script>
 
 <style lang="scss" scoped>

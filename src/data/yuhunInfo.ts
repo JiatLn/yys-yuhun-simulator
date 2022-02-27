@@ -113,7 +113,7 @@ export const allYuhunSet: IYuhun[] = [
   {
     name: '蜃气楼',
     id: 300054,
-    type: '首领御魂',
+    isChief: true,
     suit2: '唯一被动，与怪物的战斗开始时，获得庇护。庇护会在消失后5回合重新获得。',
     suit4: '',
   },
@@ -149,7 +149,7 @@ export const allYuhunSet: IYuhun[] = [
   {
     name: '荒骷髅',
     id: 300052,
-    type: '首领御魂',
+    isChief: true,
     suit2: '唯一被动，提升10%对怪物伤害，若受到怪物伤害，提升伤害效果改为25%，持续1回合。',
     suit4: '',
   },
@@ -170,7 +170,7 @@ export const allYuhunSet: IYuhun[] = [
   {
     name: '鬼灵歌伎',
     id: 300077,
-    type: '首领御魂',
+    isChief: true,
     suit2:
       '唯一被动，每对怪物造成5次伤害后，下一次对怪物造成伤害将会对其造成生命上限20%的无视防御伤害，最高不超过攻击的255%',
     suit4: '',
@@ -207,7 +207,7 @@ export const allYuhunSet: IYuhun[] = [
   {
     name: '土蜘蛛',
     id: 300050,
-    type: '首领御魂',
+    isChief: true,
     suit2:
       '唯一被动，对怪物造成伤害时，为其附加1层土蜘蛛印记，降低10%速度，并造成10%间接伤害，持续1回合。上限3层。',
     suit4: '',
@@ -236,7 +236,7 @@ export const allYuhunSet: IYuhun[] = [
   {
     name: '地震鲶',
     id: 300053,
-    type: '首领御魂',
+    isChief: true,
     suit2:
       '唯一被动，与怪物的战斗开始时，获得60%减伤；每次受到伤害，将6%减伤转化为提升1.5%伤害，单次攻击内最多触发1次。',
     suit4: '',
@@ -265,7 +265,7 @@ export const allYuhunSet: IYuhun[] = [
   {
     name: '胧车',
     id: 300051,
-    type: '首领御魂',
+    isChief: true,
     suit2: '唯一被动，受到怪物攻击时，有50%概率增加30%行动条，单次攻击内最多触发1次。',
     suit4: '',
   },
@@ -365,13 +365,11 @@ export const allYuhunSet: IYuhun[] = [
   },
 ];
 
-export const baseYuhunSet = allYuhunSet.filter((item) => item.type !== '首领御魂');
+export const baseYuhunSet = allYuhunSet.filter((item) => !item.isChief);
 
-export const goldenYuhunSet = allYuhunSet.filter(
-  (item) => item.type !== '首领御魂' && !item.isWater
-);
+export const goldenYuhunSet = allYuhunSet.filter((item) => !item.isChief && !item.isWater);
 
-export const chiefYuhunSet = allYuhunSet.filter((item) => item.type === '首领御魂');
+export const chiefYuhunSet = allYuhunSet.filter((item) => item.isChief);
 
 export const waterYuhunSet = allYuhunSet.filter((item) => item.isWater);
 

@@ -6,7 +6,15 @@ const routes: RouteRecordRaw[] = [
     name: 'Home',
     component: () => import('@/pages/Home.vue'),
     meta: {
-      title: '首页',
+      title: '秘魂屋',
+    },
+  },
+  {
+    path: '/store',
+    name: 'Store',
+    component: () => import('@/pages/Store.vue'),
+    meta: {
+      title: '仓库',
     },
   },
 ];
