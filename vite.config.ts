@@ -16,6 +16,7 @@ export default ({ mode }) => {
   // 加载 .env.[mode]
   const config = loadEnv(mode, './');
   return defineConfig({
+    base: './',
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src'),
