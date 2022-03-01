@@ -26,4 +26,4 @@ jobs:
           SOURCE: 'dist'
           REMOTE_HOST: ${{ secrets.ALIYUN_SERVER_HOST }}
           REMOTE_USER: 'root'
-          TARGET: '/root/home/dist/'
+          TARGET: '/home/dist/'
