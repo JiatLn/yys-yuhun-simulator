@@ -23,7 +23,7 @@ export default ({ mode }) => {
     },
     plugins: [
       vue(),
-      vueJsx({ babelPlugins: ['@vue/babel-plugin-jsx'] }),
+      vueJsx(),
       WindiCSS(),
       legacy({
         targets: ['ie >= 11'],
