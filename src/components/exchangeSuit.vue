@@ -12,7 +12,7 @@
     <div class="content">
       <div class="*flex-center flex-1 relative">
         <div class="w-[180px] cursor-pointer">
-          <img :src="`/src/assets/images/yuhun/${currSuit?.name}.png`" class="w-full" alt="" />
+          <img :src="`/static/images/yuhun/${currSuit?.name}.png`" class="w-full" alt="" />
         </div>
         <div class="pos-items">
           <div
@@ -22,7 +22,7 @@
             :class="{ active: currPos === item.pos }"
             @click="currPos = item.pos"
           >
-            <img :src="`/src/assets/images/yuhun-mini/${currSuit?.id}.png`" alt="" />
+            <img :src="`/static/images/yuhun-mini/${currSuit?.id}.png`" alt="" />
           </div>
         </div>
       </div>
@@ -30,7 +30,7 @@
       <div class="w-[320px] border-l">
         <div class="h-[240px] p-8 *flex-center flex-col">
           <div class="mini-icon">
-            <img :src="`/src/assets/images/yuhun-mini/${currSuit?.id}.png`" alt="" />
+            <img :src="`/static/images/yuhun-mini/${currSuit?.id}.png`" alt="" />
           </div>
           <LevelCom class="pt-2" />
           <div class="text-center opacity-50 text-[16px] mb-4">

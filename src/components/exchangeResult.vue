@@ -20,7 +20,7 @@
         <section class="*flex-center flex-col">
           <div class="w-[180px] cursor-pointer mb-[-30px] pt-[30px]">
             <img
-              :src="`/src/assets/images/yuhun/${props.result?.suit.name}.png`"
+              :src="`/static/images/yuhun/${props.result?.suit.name}.png`"
               class="w-full"
               alt=""
             />
@@ -30,7 +30,7 @@
         <section class="*flex-center flex-col">
           <div class="right—header *flex-center space-x-4 pb-10">
             <div class="w-[40px]">
-              <img :src="`/src/assets/images/yuhun-mini/${props.result?.suit?.id}.png`" alt="" />
+              <img :src="`/static/images/yuhun-mini/${props.result?.suit?.id}.png`" alt="" />
             </div>
             <div class="text-[24px]">
               {{ props.result?.suit.name }}

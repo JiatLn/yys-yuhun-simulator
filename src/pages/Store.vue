@@ -16,7 +16,7 @@
                 {{ yuhunStore.getCountById(item.id) }}
               </span>
               <div class="item__left w-[72px] mx-[16px]">
-                <img :src="`/src/assets/images/yuhun/${item.name}.png`" alt="" class="w-full" />
+                <img :src="`/static/images/yuhun/${item.name}.png`" alt="" class="w-full" />
               </div>
 
               <div class="item__right flex flex-col flex-1 space-y-1">
@@ -46,7 +46,7 @@
                   +0
                 </div>
                 <img
-                  :src="`/src/assets/images/yuhun-mini/${item.suit.id}.png`"
+                  :src="`/static/images/yuhun-mini/${item.suit.id}.png`"
                   alt=""
                   class="w-[54px] pb-2"
                 />
