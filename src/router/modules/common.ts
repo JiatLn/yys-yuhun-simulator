@@ -14,7 +14,15 @@ const routes: RouteRecordRaw[] = [
     name: 'Store',
     component: () => import('@/pages/Store.vue'),
     meta: {
-      title: '仓库',
+      title: '仓 库',
+    },
+  },
+  {
+    path: '/timeline',
+    name: 'Timeline',
+    component: () => import('@/pages/Timeline.vue'),
+    meta: {
+      title: '时间线',
     },
   },
 ];

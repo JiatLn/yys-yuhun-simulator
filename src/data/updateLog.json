@@ -1,0 +1,14 @@
+[
+  {
+    "color": "green",
+    "title": "v0",
+    "date": "2022-2-18",
+    "content": ["新建项目"]
+  },
+  {
+    "color": "blue",
+    "title": "v1.0.0",
+    "date": "2022-3-3",
+    "content": ["初始版本发布", "网站上线，域名： yuhun.store"]
+  }
+]
