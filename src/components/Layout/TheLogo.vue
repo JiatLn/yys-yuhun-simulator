@@ -1,5 +1,5 @@
 <template>
-  <div class="logo" @click="router.push({ name: 'Home' })">御魂士多</div>
+  <div class="logo" @click="router.push({ name: 'Home' })">御魂Store</div>
 </template>
 
 <script setup lang="ts">
