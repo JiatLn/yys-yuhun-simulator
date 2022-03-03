@@ -23,6 +23,7 @@
   import water from '@/assets/icons/water.png';
   import type { ICurrencyType } from '@/store/modules/useAccountStore';
   import useAccountStore from '@/store/modules/useAccountStore';
+  import { message } from 'ant-design-vue/es';
 
   const accountStore = useAccountStore();
 
@@ -73,6 +74,10 @@
   });
 
   const onExchange = (type: ICurrencyType) => {
+    if (['water', 'purple', 'chief'].includes(type)) {
+      message.info('该功能呢暂未开放，敬请期待(#^.^#)');
+      return;
+    }
     show.value[type] = true;
   };
 </script>
@@ -81,7 +86,7 @@
   .warpper {
     background: url(../assets/icons/bg.png);
     .entry-items {
-      @apply grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-[100px] overflow-auto py-10;
+      @apply grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-[100px] py-10;
       @include scroll();
     }
   }

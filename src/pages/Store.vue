@@ -1,5 +1,5 @@
 <template>
-  <div class="content flex h-full">
+  <div class="content flex h-full px-[50px]">
     <div class="content__left flex-1 h-full">
       <a-tabs v-model:activeKey="activeKey" type="card" class="h-full" @tab-click="onTabClick">
         <a-tab-pane key="1" tab="类型">

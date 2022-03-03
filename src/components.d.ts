@@ -18,11 +18,16 @@ declare module 'vue' {
     AppIcon: typeof import('./components/common/AppIcon.vue')['default']
     ATabPane: typeof import('ant-design-vue/es')['TabPane']
     ATabs: typeof import('ant-design-vue/es')['Tabs']
+    ATimeline: typeof import('ant-design-vue/es')['Timeline']
+    ATimelineItem: typeof import('ant-design-vue/es')['TimelineItem']
+    BreadCrumb: typeof import('./components/Layout/BreadCrumb.vue')['default']
     EntryItem: typeof import('./components/entryItem.vue')['default']
     ExchangeGolden: typeof import('./components/exchangeGolden.vue')['default']
     ExchangeResult: typeof import('./components/exchangeResult.vue')['default']
     ExchangeSuit: typeof import('./components/exchangeSuit.vue')['default']
     LevelCom: typeof import('./components/levelCom.vue')['default']
+    TheLogo: typeof import('./components/Layout/TheLogo.vue')['default']
+    TheMenu: typeof import('./components/Layout/TheMenu.vue')['default']
   }
 }
 
