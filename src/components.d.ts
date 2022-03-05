@@ -15,6 +15,7 @@ declare module 'vue' {
     AMenu: typeof import('ant-design-vue/es')['Menu']
     AMenuItem: typeof import('ant-design-vue/es')['MenuItem']
     AModal: typeof import('ant-design-vue/es')['Modal']
+    APopover: typeof import('ant-design-vue/es')['Popover']
     AppIcon: typeof import('./components/common/AppIcon.vue')['default']
     ATabPane: typeof import('ant-design-vue/es')['TabPane']
     ATabs: typeof import('ant-design-vue/es')['Tabs']
@@ -25,9 +26,11 @@ declare module 'vue' {
     ExchangeGolden: typeof import('./components/exchangeGolden.vue')['default']
     ExchangeResult: typeof import('./components/exchangeResult.vue')['default']
     ExchangeSuit: typeof import('./components/exchangeSuit.vue')['default']
+    LazyImg: typeof import('./components/common/LazyImg.vue')['default']
     LevelCom: typeof import('./components/levelCom.vue')['default']
     TheLogo: typeof import('./components/Layout/TheLogo.vue')['default']
     TheMenu: typeof import('./components/Layout/TheMenu.vue')['default']
+    YuhunItem: typeof import('./components/YuhunItem.vue')['default']
   }
 }
 

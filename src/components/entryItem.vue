@@ -3,7 +3,7 @@
     <div class="pic w-[120px] pb-4">
       <img src="../assets/icons/icon-yuhun.png" class="w-full h-full" alt="" />
     </div>
-    <LevelCom />
+    <LevelCom class="pb-4" />
     <div class="text-[22px] py-16px font-mono font-semibold">
       {{ props.title }}
     </div>

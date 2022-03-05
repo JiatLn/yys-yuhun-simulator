@@ -40,31 +40,45 @@
                 :key="item.ulid"
                 class="*flex-center flex-col h-[102px] border cursor-pointer bg-yellow-200 border-4 border-yellow-500 relative shadow-lg"
               >
-                <div
-                  class="level absolute top-0 left-0 from-black to-transparent bg-gradient-to-r text-white text-center w-[30px] text-[12px] py-1"
+                <a-popover
+                  title=""
+                  trigger="click"
+                  placement="rightTop"
+                  arrowPointAtCenter
+                  destroyTooltipOnHide
+                  overlayClassName="yuhun-popover"
                 >
-                  +0
-                </div>
-                <img
-                  :src="`/static/images/yuhun-mini/${item.suit.id}.png`"
-                  alt=""
-                  class="w-[54px] pb-2"
-                />
-                <LevelCom :size="12" class="absolute bottom-1 pb-0" />
-                <div class="lock absolute top-0 right-0">
-                  <AppIcon
-                    v-show="item.isLock"
-                    icon="tabler:lock"
-                    class="text-[20px] text-red-600"
-                    @click="(e) => onLock(e, item.ulid)"
-                  />
-                  <AppIcon
-                    v-show="!item.isLock"
-                    icon="tabler:lock-open"
-                    class="text-[20px] text-gray-500"
-                    @click="(e) => onLock(e, item.ulid)"
-                  />
-                </div>
+                  <template #content>
+                    <YuhunItem v-if="item" :yuhun="item" />
+                  </template>
+                  <div class="*flex-center flex-col">
+                    <div
+                      class="level absolute top-0 left-0 from-black to-transparent bg-gradient-to-r text-white text-center w-[30px] text-[12px] py-1"
+                    >
+                      +0
+                    </div>
+                    <img
+                      :src="`/static/images/yuhun-mini/${item.suit.id}.png`"
+                      alt=""
+                      class="w-[54px] pb-2"
+                    />
+                    <LevelCom :size="12" class="absolute bottom-1 pb-0" />
+                    <div class="lock absolute top-0 right-0">
+                      <AppIcon
+                        v-show="item.isLock"
+                        icon="tabler:lock"
+                        class="text-[20px] text-red-600"
+                        @click="(e) => onLock(e, item.ulid)"
+                      />
+                      <AppIcon
+                        v-show="!item.isLock"
+                        icon="tabler:lock-open"
+                        class="text-[20px] text-gray-500"
+                        @click="(e) => onLock(e, item.ulid)"
+                      />
+                    </div>
+                  </div>
+                </a-popover>
               </li>
             </ul>
           </div>
@@ -114,5 +128,19 @@
       @apply h-full w-full grid grid-cols-4 auto-rows-max gap-2 bg-yellow-900 p-2 select-none;
       @include scroll();
     }
+  }
+
+  ::v-global(.yuhun-popover .ant-popover-inner) {
+    box-shadow: none;
+    background-color: transparent;
+    border-bottom-color: #fff;
+    border-left-color: #f50f0f;
+  }
+  ::v-global(.yuhun-popover .ant-popover-inner-content) {
+    padding: 0;
+  }
+  ::v-global(.yuhun-popover .ant-popover-arrow) {
+    border-bottom-color: #3a200d !important;
+    border-left-color: #3a200d !important;
   }
 </style>

@@ -32,7 +32,7 @@
           <div class="mini-icon">
             <img :src="`/static/images/yuhun-mini/${currSuit?.id}.png`" alt="" />
           </div>
-          <LevelCom class="pt-2" />
+          <LevelCom class="pt-2 pb-4" />
           <div class="text-center opacity-50 text-[16px] mb-4">
             {{ currSuit?.name + (currPos > 0 ? '·' + posOpts[currPos - 1].label : '') }}
           </div>
