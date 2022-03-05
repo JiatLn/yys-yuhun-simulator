@@ -1,7 +1,7 @@
 <template>
   <div class="*flex-center flex-col py-10 h-full">
     <a-timeline style="height: inherit">
-      <a-timeline-item v-for="(item, index) in logs" :key="index" :color="item.color">
+      <a-timeline-item v-for="(item, index) in updateLog" :key="index" :color="item.color">
         <p class="pb-2 text-gray-600">{{ item.date }}</p>
         <div class="content w-[520px] shadow-lg border p-4 mr-4 rounded">
           <div class="title pb-2 text-2xl">
@@ -20,8 +20,6 @@
 
 <script setup lang="ts">
   import updateLog from '@/data/updateLog.json';
-
-  const logs = updateLog.reverse();
 </script>
 
 <style scoped lang="scss">

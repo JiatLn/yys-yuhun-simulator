@@ -28,6 +28,8 @@ declare module 'vue' {
     ExchangeSuit: typeof import('./components/exchangeSuit.vue')['default']
     LazyImg: typeof import('./components/common/LazyImg.vue')['default']
     LevelCom: typeof import('./components/levelCom.vue')['default']
+    TheFooter: typeof import('./components/Layout/TheFooter.vue')['default']
+    TheHeaderRight: typeof import('./components/Layout/TheHeaderRight.vue')['default']
     TheLogo: typeof import('./components/Layout/TheLogo.vue')['default']
     TheMenu: typeof import('./components/Layout/TheMenu.vue')['default']
     YuhunItem: typeof import('./components/YuhunItem.vue')['default']

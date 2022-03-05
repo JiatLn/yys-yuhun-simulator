@@ -1,8 +1,8 @@
 <template>
   <a-layout class="layout">
-    <a-layout-header>
-      <TheLogo />
+    <a-layout-header class="flex justify-between">
       <TheMenu />
+      <TheHeaderRight />
     </a-layout-header>
     <a-layout-content>
       <BreadCrumb />
@@ -10,7 +10,9 @@
         <router-view />
       </div>
     </a-layout-content>
-    <a-layout-footer class="text-center">YYS Yuhun Simulator © 2022 JiatLn</a-layout-footer>
+    <a-layout-footer>
+      <TheFooter />
+    </a-layout-footer>
   </a-layout>
 </template>
 

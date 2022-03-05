@@ -2,7 +2,7 @@
   <a-breadcrumb class="my-[16px] px-[50px]">
     <a-breadcrumb-item href="" @click="router.push({ name: 'Home' })">
       <home-outlined />
-      <span>YuhunStore</span>
+      <!-- <span>YuhunStore</span> -->
     </a-breadcrumb-item>
     <a-breadcrumb-item>{{ route.meta.title }}</a-breadcrumb-item>
   </a-breadcrumb>

@@ -1,9 +1,12 @@
 [
   {
-    "color": "green",
-    "title": "v0",
-    "date": "2022-2-18",
-    "content": ["新建项目"]
+    "color": "yellow",
+    "title": "v1.1.0",
+    "date": "2022-3-5",
+    "content": [
+      "【功能】仓库：点击御魂可查看该御魂的属性。",
+      "【优化】全局导航样式，增加 github 项目地址"
+    ]
   },
   {
     "color": "blue",
@@ -12,9 +15,9 @@
     "content": ["初始版本发布", "网站上线，域名： yuhun.store"]
   },
   {
-    "color": "yellow",
-    "title": "v1.1.0",
-    "date": "2022-3-5",
-    "content": ["仓库：点击御魂可查看该御魂的属性。"]
+    "color": "green",
+    "title": "v0",
+    "date": "2022-2-18",
+    "content": ["新建项目"]
   }
 ]
