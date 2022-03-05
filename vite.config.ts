@@ -39,12 +39,16 @@ export default ({ mode }) => {
       AutoImport({
         imports: ['vue'],
         dts: 'src/auto-import.d.ts',
+        resolvers: [AntDesignVueResolver()],
       }),
       Components({
         dts: 'src/components.d.ts',
         resolvers: [AntDesignVueResolver()],
       }),
     ],
+    optimizeDeps: {
+      include: ['ant-design-vue'],
+    },
     server: {
       host: '0.0.0.0',
       proxy: {
