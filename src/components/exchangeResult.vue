@@ -57,7 +57,9 @@
               <div class="name">
                 {{ props.result?.mainAttr.label }}
               </div>
-              <div class="val">+{{ props.result?.mainAttr.mainVal }}</div>
+              <div class="val">
+                +{{ getValueWithFmt(props.result?.mainAttr.baseVal, props.result?.mainAttr.value) }}
+              </div>
             </li>
             <li
               v-for="(item, index) in props.result?.randomAttrs"
@@ -65,7 +67,7 @@
               class="flex justify-between w-[200px]"
             >
               <div class="name">{{ item.name }}</div>
-              <div class="val">+{{ getValueWithFmt(item.val, item.type, 0) }}</div>
+              <div class="val">+{{ getValueWithFmt(item.val, item.type) }}</div>
             </li>
           </ul>
         </section>

@@ -380,6 +380,8 @@ export const mainAttrOpts: IAttrInfo[] = [
     growth: [2.4, 3],
     posList: [2, 4, 6],
     mainVal: '55%',
+    baseVal: 10,
+    levelStep: 3,
   },
   {
     label: '速度',
@@ -387,6 +389,8 @@ export const mainAttrOpts: IAttrInfo[] = [
     growth: [2.4, 3],
     posList: [2],
     mainVal: '57',
+    baseVal: 12,
+    levelStep: 3,
   },
   {
     label: '暴击',
@@ -394,6 +398,8 @@ export const mainAttrOpts: IAttrInfo[] = [
     growth: [2.4, 3],
     posList: [6],
     mainVal: '55%',
+    baseVal: 10,
+    levelStep: 3,
   },
   {
     label: '暴击伤害',
@@ -401,6 +407,8 @@ export const mainAttrOpts: IAttrInfo[] = [
     growth: [3.2, 4],
     posList: [6],
     mainVal: '89%',
+    baseVal: 14,
+    levelStep: 5,
   },
   {
     label: '防御加成',
@@ -408,6 +416,8 @@ export const mainAttrOpts: IAttrInfo[] = [
     growth: [2.4, 3],
     posList: [2, 4, 6],
     mainVal: '55%',
+    baseVal: 10,
+    levelStep: 3,
   },
   {
     label: '生命加成',
@@ -415,6 +425,8 @@ export const mainAttrOpts: IAttrInfo[] = [
     growth: [2.4, 3],
     posList: [2, 4, 6],
     mainVal: '55%',
+    baseVal: 10,
+    levelStep: 3,
   },
   {
     label: '效果命中',
@@ -422,6 +434,8 @@ export const mainAttrOpts: IAttrInfo[] = [
     growth: [3.2, 4],
     posList: [4],
     mainVal: '55%',
+    baseVal: 10,
+    levelStep: 3,
   },
   {
     label: '效果抵抗',
@@ -429,6 +443,8 @@ export const mainAttrOpts: IAttrInfo[] = [
     growth: [3.2, 4],
     posList: [4],
     mainVal: '55%',
+    baseVal: 10,
+    levelStep: 3,
   },
 ];
 
@@ -441,6 +457,8 @@ export const randomAttrOpts: IAttrInfo[] = [
     growth: [24, 27],
     posList: [1],
     mainVal: '486',
+    baseVal: 81,
+    levelStep: 27,
   },
   {
     label: '生命',
@@ -448,6 +466,8 @@ export const randomAttrOpts: IAttrInfo[] = [
     growth: [24, 27],
     posList: [5],
     mainVal: '2052',
+    baseVal: 342,
+    levelStep: 114,
   },
   {
     label: '防御',
@@ -455,6 +475,8 @@ export const randomAttrOpts: IAttrInfo[] = [
     growth: [3, 5],
     posList: [3],
     mainVal: '104',
+    baseVal: 14,
+    levelStep: 6,
   },
 ];
 

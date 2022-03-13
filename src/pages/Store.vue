@@ -31,7 +31,9 @@
         <a-tab-pane key="pos" tab="位置"></a-tab-pane>
       </a-tabs>
     </div>
-    <div class="content__right flex-1">{{ currentYuhun }}</div>
+    <div class="content__right flex-1 *flex-center flex-col">
+      <YuhunDetail v-if="currentYuhun" :yuhun="currentYuhun" />
+    </div>
   </div>
 </template>
 

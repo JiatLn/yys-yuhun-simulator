@@ -9,7 +9,7 @@
           />
         </div>
         <div class="flex flex-col">
-          <span>{{ props.yuhun.suit.name }} +15</span>
+          <span>{{ props.yuhun.suit.name }}</span>
           <LevelCom :size="12" />
         </div>
       </div>
@@ -19,11 +19,18 @@
     <ul class="attrs">
       <li class="attr-item">
         <span>{{ props.yuhun.mainAttr.label }}</span>
-        <span>+{{ props.yuhun.mainAttr.mainVal }}</span>
+        <span>
+          +{{
+            getValueWithFmt(
+              props.yuhun.mainAttr.baseVal + props.yuhun.mainAttr.levelStep * props.yuhun.level,
+              props.yuhun.mainAttr.value
+            )
+          }}
+        </span>
       </li>
       <li v-for="(item, i) in props.yuhun.randomAttrs" :key="i" class="attr-item">
         <span>{{ item.name }}</span>
-        <span>+{{ getValueWithFmt(item.val, item.type, 0) }}</span>
+        <span>+{{ getValueWithFmt(item.val, item.type) }}</span>
       </li>
     </ul>
     <div class="pt-[8px] text-[14px] text-[#777] flex flex-col leading-5">
@@ -48,7 +55,7 @@
     @apply w-[232px] min-h-[300px] flex flex-col p-[16px] bg-[#d6c9b9];
     box-shadow: inset 0 0 0 1px #3a200d, inset 0 0 0 2px #aa8559, inset 0 0 2px 3px #261a0d;
     .attrs {
-      @apply h-[125px] flex flex-col border-b border-[#a68d70];
+      @apply h-[125px] flex flex-col border-t border-b my-1 border-[#a68d70];
       .attr-item {
         @apply w-[200px] h-[20px] text-[#1e1e1e] flex justify-between items-center my-[2px] text-[14px];
         &:first-child {

@@ -6,7 +6,6 @@ declare module 'vue' {
   export interface GlobalComponents {
     ABreadcrumb: typeof import('ant-design-vue/es')['Breadcrumb']
     ABreadcrumbItem: typeof import('ant-design-vue/es')['BreadcrumbItem']
-    AButton: typeof import('ant-design-vue/es')['Button']
     AEmpty: typeof import('ant-design-vue/es')['Empty']
     ALayout: typeof import('ant-design-vue/es')['Layout']
     ALayoutContent: typeof import('ant-design-vue/es')['LayoutContent']
@@ -31,6 +30,7 @@ declare module 'vue' {
     TheFooter: typeof import('./components/Layout/TheFooter.vue')['default']
     TheHeaderRight: typeof import('./components/Layout/TheHeaderRight.vue')['default']
     TheMenu: typeof import('./components/Layout/TheMenu.vue')['default']
+    YuhunDetail: typeof import('./components/store/yuhunDetail.vue')['default']
     YuhunItem: typeof import('./components/YuhunItem.vue')['default']
   }
 }

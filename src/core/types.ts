@@ -4,6 +4,8 @@ export interface IAttrInfo {
   growth: [number, number];
   posList: Pos[];
   mainVal: string;
+  baseVal: number;
+  levelStep: number;
 }
 
 export interface IYuhun {

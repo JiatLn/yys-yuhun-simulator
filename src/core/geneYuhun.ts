@@ -23,6 +23,7 @@ export interface IGeneYuhun {
   mainAttr: IAttrInfo;
   isLock: boolean;
   ulid: string;
+  level: number;
 }
 
 export type GeneType = 'all' | 'chief' | 'water' | 'base';
@@ -48,7 +49,7 @@ export const geneYuhun = (params: IYuhunParams): IGeneYuhun => {
       break;
   }
   const suit = chooseList.find((item) => item.id === params.suitId) ?? pickN(chooseList);
-  // 随机属性 2-3条
+  // 随机属性 2-4条
   const randomAttrs = geneRandomAttrs();
   // 随机主属性
   const mainAttr = pickN(mainAttrWithPos(pos));
@@ -59,12 +60,13 @@ export const geneYuhun = (params: IYuhunParams): IGeneYuhun => {
     mainAttr,
     isLock: false,
     ulid: ulid(),
+    level: 0,
   };
   return result;
 };
 
 const geneRandomAttrs = (): IAttr[] => {
-  let attrNum = ~~(Math.random() * 3 + 2);
+  let attrNum = ~~(Math.random() * 3 + 2); // 2, 3, 4
   return pickN(randomAttrOpts, attrNum).map((item) => ({
     name: item.label,
     val: randVal(item.growth),
@@ -80,7 +82,7 @@ const mainAttrWithPos = (pos: Pos) => {
   return randomAttrOpts.filter((item) => item.posList.includes(pos));
 };
 
-export const getValueWithFmt = (value: number, type: EAttrType, digit: number = 4) => {
+export const getValueWithFmt = (value: number, type: EAttrType, digit: number = 0) => {
   if (value === 0) return '-';
   if (
     [
