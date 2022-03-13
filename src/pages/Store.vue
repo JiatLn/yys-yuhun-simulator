@@ -1,7 +1,7 @@
 <template>
-  <div class="content flex h-full px-[50px]">
-    <div class="content__left flex-1 h-full">
-      <a-tabs v-model:activeTab="activeTab" type="card" class="h-full" @tab-click="onTabClick">
+  <div h-full flex px-50px>
+    <div h-full flex-1>
+      <a-tabs v-model:activeTab="activeTab" type="card" h-full @tab-click="onTabClick">
         <a-tab-pane key="suit" tab="类型">
           <div v-if="!currentSuit" class="suit-items">
             <ShotSuit
@@ -14,7 +14,7 @@
           <div v-else class="yuhun-box">
             <a-empty v-if="!yuhunList.length" :image="Empty.PRESENTED_IMAGE_SIMPLE">
               <template #description>
-                <p class="text-white py-4">暂无该种类的御魂</p>
+                <p py-4 text-white>暂无该种类的御魂</p>
               </template>
             </a-empty>
             <div v-else class="yuhun-items">
@@ -31,7 +31,7 @@
         <a-tab-pane key="pos" tab="位置"></a-tab-pane>
       </a-tabs>
     </div>
-    <div class="content__right flex-1 *flex-center flex-col">
+    <div flex-1 flex-c flex-col>
       <YuhunDetail v-if="currentYuhun" :yuhun="currentYuhun" />
     </div>
   </div>
@@ -66,12 +66,12 @@
 
 <style scoped lang="scss">
   .suit-items {
-    @apply max-w-[448px] grid grid-cols-2 gap-2 bg-yellow-900 p-2 select-none;
+    @apply max-w-448px grid grid-cols-2 gap-2 bg-yellow-900 p-2 select-none;
     @include scroll();
     height: calc(100vh - 64px - 22px - 32px - 69px - 40px - 16px);
   }
   .yuhun-box {
-    @apply max-w-[448px] bg-yellow-900 *flex-center;
+    @apply max-w-448px bg-yellow-900 flex-c;
     height: calc(100vh - 64px - 22px - 32px - 69px - 40px - 16px);
     .yuhun-items {
       @apply h-full w-full grid grid-cols-4 auto-rows-max gap-2 bg-yellow-900 p-2 select-none;

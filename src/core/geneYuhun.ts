@@ -16,6 +16,7 @@ export interface IYuhunParams {
   suitId?: number;
   geneType?: GeneType;
 }
+
 export interface IGeneYuhun {
   pos: Pos;
   suit: IYuhun;

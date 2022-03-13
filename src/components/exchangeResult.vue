@@ -12,62 +12,47 @@
     @cancel="onCancel"
   >
     <div v-if="!!props.result" class="content" @click="onCancel">
-      <div class="header center text-[#e8d799] text-[60px] font-black mb-10">购买成功</div>
-      <div class="main-content *flex-center space-x-30 relative">
-        <!-- <button class="absolute text-[40px] border-r bg-yellow-300 right-[-10px] bottom-[-30px]">
-          强化
-        </button> -->
-        <section class="*flex-center flex-col">
-          <div class="w-[180px] cursor-pointer mb-[-30px] pt-[30px]">
-            <img
-              :src="`/static/images/yuhun/${props.result?.suit.name}.png`"
-              class="w-full"
-              alt=""
-            />
+      <div class="header">购买成功</div>
+      <div flex-c space-x-30 relative>
+        <section flex-c flex-col>
+          <div w-180px cursor-pointer mb--30px pt-30px>
+            <img :src="`/static/images/yuhun/${props.result?.suit.name}.png`" w-full />
           </div>
           <LevelCom :size="26" />
         </section>
-        <section class="*flex-center flex-col">
-          <div class="right—header *flex-center space-x-4 pb-10">
-            <div class="w-[40px]">
+        <section flex-c flex-col>
+          <div flex-c space-x-4 pb-10>
+            <div w-40px>
               <img :src="`/static/images/yuhun-mini/${props.result?.suit?.id}.png`" alt="" />
             </div>
-            <div class="text-[24px]">
-              {{ props.result?.suit.name }}
-            </div>
-            <!-- <AppIcon
-              icon="fluent:paint-brush-arrow-down-24-filled"
-              class="text-[20px] text-yellow-100"
-            /> -->
-            <AppIcon
-              v-show="isLock"
-              icon="tabler:lock"
-              class="text-[20px] text-yellow-100"
-              @click="onLock"
-            />
+            <div text-24px>{{ props.result?.suit.name }}</div>
+            <AppIcon v-show="isLock" icon="tabler:lock" text-20px text-yellow-100 @click="onLock" />
             <AppIcon
               v-show="!isLock"
               icon="tabler:lock-open"
-              class="text-[20px] text-yellow-100"
+              text-20px
+              text-yellow-100
               @click="onLock"
             />
           </div>
-          <ul class="flex flex-col text-[20px] gap-2 font-medium">
-            <li class="flex justify-between w-[200px] text-red-500">
-              <div class="name">
+          <ul flex flex-col text-20px gap-1 font-medium>
+            <li flex justify-between w-200px text-red-500>
+              <div>
                 {{ props.result?.mainAttr.label }}
               </div>
-              <div class="val">
+              <div>
                 +{{ getValueWithFmt(props.result?.mainAttr.baseVal, props.result?.mainAttr.value) }}
               </div>
             </li>
             <li
               v-for="(item, index) in props.result?.randomAttrs"
               :key="index"
-              class="flex justify-between w-[200px]"
+              flex
+              justify-between
+              w-200px
             >
-              <div class="name">{{ item.name }}</div>
-              <div class="val">+{{ getValueWithFmt(item.val, item.type) }}</div>
+              <div>{{ item.name }}</div>
+              <div>+{{ getValueWithFmt(item.val, item.type) }}</div>
             </li>
           </ul>
         </section>
@@ -114,10 +99,10 @@
 
 <style scoped lang="scss">
   .content {
-    @apply *flex-center flex-col h-full text-white select-none;
+    @apply flex-c flex-col h-full text-white select-none;
     font-family: '楷体';
     .header {
-      text-shadow: 5px 5px 5px #a68752;
+      @apply center text-yellow-200 text-60px font-black mb-10;
     }
   }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center">
+  <div text-center>
     YYS Yuhun Simulator © 2022
     <a href="https://github.com/JiatLn" target="__blank">JiatLn</a>
   </div>

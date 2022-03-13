@@ -27,13 +27,6 @@ const router = createRouter({
 
 // 全局路由登录拦截
 router.beforeEach((to, from, next) => {
-  // const userStroe = useUserStore();
-  // const isLogin = userStroe.isLogin();
-  // if (to.meta.needLogin && !isLogin) {
-  //   next({ name: 'Login' });
-  // } else if (to.name === 'Login' && isLogin) {
-  //   next({ name: 'Home' });
-  // }
   next();
 });
 

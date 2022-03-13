@@ -1,5 +1,5 @@
 <template>
-  <div class="*flex-center" :class="props.class">
+  <div flex-c :class="props.class">
     <img
       v-for="i in 6"
       :key="i"

@@ -1,17 +1,17 @@
 <template>
-  <a-breadcrumb class="my-[16px] px-[50px]">
-    <a-breadcrumb-item href="" @click="router.push({ name: 'Home' })">
-      <home-outlined />
-      <!-- <span>YuhunStore</span> -->
-    </a-breadcrumb-item>
-    <a-breadcrumb-item>{{ route.meta.title }}</a-breadcrumb-item>
-  </a-breadcrumb>
+  <div my-16px px-50px flex items-center gap-2>
+    <div
+      i-ant-design:home-filled
+      cursor-pointer
+      hover:text-blue-500
+      @click="router.push({ name: 'Home' })"
+    ></div>
+    <span>·</span>
+    <div>{{ route.meta.title }}</div>
+  </div>
 </template>
 
 <script setup lang="ts">
-  import { HomeOutlined } from '@ant-design/icons-vue';
-  import { useRoute, useRouter } from 'vue-router';
-
   const router = useRouter();
   const route = useRoute();
 </script>

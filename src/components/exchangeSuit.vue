@@ -10,9 +10,9 @@
     @cancel="onCancel"
   >
     <div class="content">
-      <div class="*flex-center flex-1 relative">
-        <div class="w-[180px] cursor-pointer">
-          <img :src="`/static/images/yuhun/${currSuit?.name}.png`" class="w-full" alt="" />
+      <div flex-c flex-1 relative>
+        <div w-180px cursor-pointer>
+          <img :src="`/static/images/yuhun/${currSuit?.name}.png`" w-full />
         </div>
         <div class="pos-items">
           <div
@@ -27,28 +27,28 @@
         </div>
       </div>
 
-      <div class="w-[320px] border-l">
-        <div class="h-[240px] p-8 *flex-center flex-col">
+      <div w-320px border-l>
+        <div h-240px p-8 flex-c flex-col>
           <div class="mini-icon">
             <img :src="`/static/images/yuhun-mini/${currSuit?.id}.png`" alt="" />
           </div>
-          <LevelCom class="pt-2 pb-4" />
-          <div class="text-center opacity-50 text-[16px] mb-4">
+          <LevelCom pt-2 pb-4 />
+          <div text-center opacity-50 text-16px mb-4>
             {{ currSuit?.name + (currPos > 0 ? '·' + posOpts[currPos - 1].label : '') }}
           </div>
-          <div class="px-2 h-[40px] w-full">
+          <div px-2 h-40px w-full>
             <p v-if="currPos > 0">
               {{ posOpts[currPos - 1].tips }}
             </p>
-            <p v-else class="opacity-50 text-[16px] text-center">请选择购买御魂的位置</p>
+            <p v-else opacity-50 text-16px text-center>请选择购买御魂的位置</p>
           </div>
         </div>
-        <div class="*flex-center flex-col border-t flex-1 p-4">
-          <div class="text-[16px] flex-1 space-y-1 self-start">
+        <div flex-c flex-col border-t flex-1 p-4>
+          <div text-16px flex-1 space-y-1 self-start>
             <p>2件套属性：{{ currSuit?.suit2 }}</p>
             <p v-show="currSuit?.suit4.length">4件套属性：{{ currSuit?.suit4 }}</p>
           </div>
-          <div class="*yys-btn mt-[20px]" @click="onExchange">兑换</div>
+          <div yys-btn mt-20px @click="onExchange">兑换</div>
         </div>
       </div>
     </div>
@@ -112,7 +112,7 @@
 
 <style scoped lang="scss">
   .content {
-    @apply flex h-[440px] bg-[#472e2c] text-white select-none;
+    @apply flex h-440px bg-#472e2c text-white select-none;
     font-family: '楷体';
 
     .pos-items {
@@ -123,15 +123,15 @@
         'two . . . . . five'
         '. three . . . four .';
       .pos-item {
-        @apply w-[70px] h-[70px] rounded-1 relative cursor-pointer;
+        @apply w-70px h-70px rounded-1 relative cursor-pointer;
         &.active::before {
           content: '';
-          @apply absolute top-0 left-0 w-[70px] h-[70px] rounded-1 opacity-50 bg-white;
+          @apply absolute top-0 left-0 w-70px h-70px rounded-full opacity-50 bg-white;
         }
         &::after {
           content: '';
           background: url(../assets/icons/yuhun-border.png) no-repeat;
-          @apply absolute top-1/2 left-1/2 w-[100px] h-[100px] bg-contain;
+          @apply absolute top-1/2 left-1/2 w-100px h-100px bg-contain;
           transform: translate(-50%, -50%);
         }
         &:nth-child(1) {
@@ -171,11 +171,11 @@
     }
 
     .mini-icon {
-      @apply w-[50px] relative;
+      @apply w-50px relative;
       &::after {
         content: '';
         background: url(../assets/icons/yuhun-border.png) no-repeat;
-        @apply absolute top-1/2 left-1/2 w-[70px] h-[70px] bg-contain;
+        @apply absolute top-1/2 left-1/2 w-70px h-70px bg-contain;
         transform: translate(-50%, -50%);
       }
     }

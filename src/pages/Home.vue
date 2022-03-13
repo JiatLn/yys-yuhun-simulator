@@ -1,5 +1,5 @@
 <template>
-  <div class="warpper h-full w-full *flex-center flex-col">
+  <div class="warpper">
     <div class="entry-items">
       <EntryItem
         v-for="(item, index) in entryList"
@@ -85,8 +85,9 @@
 <style lang="scss" scoped>
   .warpper {
     background: url(../assets/icons/bg.png);
+    @apply h-full w-full flex-c flex-col;
     .entry-items {
-      @apply grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-[100px] py-10;
+      @apply grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-100px py-10;
       @include scroll();
     }
   }

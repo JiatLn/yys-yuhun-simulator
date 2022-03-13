@@ -6,10 +6,10 @@ import router from './router';
 
 import { initStore } from '@/app/initStore';
 
+import 'uno.css';
+import '@unocss/reset/tailwind.css';
 import '@purge-icons/generated';
-import 'virtual:windi.css';
 import '@/assets/styles/_global.scss';
-
 import 'ant-design-vue/es/message/style/css';
 
 const app = createApp(App);

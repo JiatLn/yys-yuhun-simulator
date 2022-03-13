@@ -1,16 +1,16 @@
 <template>
-  <a-layout class="layout">
-    <a-layout-header class="flex justify-between">
+  <a-layout>
+    <a-layout-header flex justify-between>
       <TheMenu />
       <TheHeaderRight />
     </a-layout-header>
     <a-layout-content>
       <BreadCrumb />
-      <div class="bg-white h-[calc(100vh-187px)]">
+      <div class="h-[calc(100vh-64px-32px-21px-53px)]" bg-white>
         <router-view />
       </div>
     </a-layout-content>
-    <a-layout-footer>
+    <a-layout-footer py-16px>
       <TheFooter />
     </a-layout-footer>
   </a-layout>

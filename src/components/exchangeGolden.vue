@@ -9,13 +9,11 @@
     @cancel="onCancel"
   >
     <div class="yuhun-items">
-      <div v-for="item in goldenYuhunSet" :key="item.id" class="yuhunItem *flex-center flex-col">
-        <div class="w-[120px] cursor-pointer" @click="onClick(item.id)">
-          <img :src="`/static/images/yuhun/${item.name}.png`" class="h-full" alt="" />
+      <div v-for="item in goldenYuhunSet" :key="item.id" flex-c flex-col>
+        <div w-120px cursor-pointer @click="onClick(item.id)">
+          <img :src="`/static/images/yuhun/${item.name}.png`" h-full />
         </div>
-        <div class="name text-[16px]">
-          {{ item.name }}
-        </div>
+        <div text-16px>{{ item.name }}</div>
       </div>
     </div>
     <ExchangeSuit :show="showExchange" :suit-id="suitId" @close="showExchange = false" />
@@ -58,6 +56,6 @@
 <style scoped lang="scss">
   .yuhun-items {
     @include scroll();
-    @apply h-[520px] grid grid-cols-5 gap-y-4 grid-cols-5 py-6;
+    @apply h-520px grid grid-cols-5 gap-y-4 grid-cols-5 py-6;
   }
 </style>

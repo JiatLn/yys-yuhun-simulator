@@ -37,7 +37,6 @@
     "vue/multiline-html-element-content-newline": "off",
     "vue/no-v-html": "off",
     "vue/multi-word-component-names": "off",
-
     //    "space-before-blocks": "warn",
     //    "space-before-function-paren": "error",
     //    "space-in-parens": "warn",

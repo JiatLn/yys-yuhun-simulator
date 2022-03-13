@@ -1,5 +1,5 @@
 <template>
-  <div class="inline-flex justify-center items-center cursor-pointer" :class="props.class">
+  <div inline-flex justify-center items-center cursor-pointer :class="props.class">
     <span class="iconify" :data-icon="props.icon"></span>
   </div>
 </template>
