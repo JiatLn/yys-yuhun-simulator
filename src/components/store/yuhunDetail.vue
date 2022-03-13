@@ -5,8 +5,11 @@
       <span flex-1>强化等级</span>
       <div flex w-140px justify-between>
         <span>{{ props.yuhun.level }}</span>
-        <AppIcon icon="eva:arrow-right-fill" text-red-400 />
-        <span text-red-400 w-20px text-right>{{ nextLevel }}</span>
+        <template v-if="props.yuhun.level < 15">
+          <AppIcon icon="eva:arrow-right-fill" text-red-400 />
+          <span text-red-400 w-20px text-right>{{ nextLevel }}</span>
+        </template>
+        <div v-else text-red-400>满</div>
       </div>
     </div>
     <div bg-yellow-900 p-6 rounded-lg>
@@ -14,30 +17,38 @@
         <span flex-1>{{ props.yuhun.mainAttr.label }}</span>
         <div flex justify-between w-160px>
           <span>
-            +{{ getValueWithFmt(props.yuhun.mainAttr.baseVal, props.yuhun.mainAttr.value) }}
-          </span>
-          <AppIcon icon="eva:arrow-right-fill" text-red-400 />
-          <span text-red-400 w-40px text-right>
             +{{
               getValueWithFmt(
-                props.yuhun.mainAttr.baseVal + props.yuhun.mainAttr.levelStep * nextLevel,
+                props.yuhun.mainAttr.baseVal + props.yuhun.level * props.yuhun.mainAttr.levelStep,
                 props.yuhun.mainAttr.value
               )
             }}
           </span>
+          <template v-if="props.yuhun.level < 15">
+            <AppIcon icon="eva:arrow-right-fill" text-red-400 />
+            <span text-red-400 w-40px text-right>
+              +{{
+                getValueWithFmt(
+                  props.yuhun.mainAttr.baseVal + props.yuhun.mainAttr.levelStep * nextLevel,
+                  props.yuhun.mainAttr.value
+                )
+              }}
+            </span>
+          </template>
+          <div v-else text-red-400>已满级</div>
         </div>
       </div>
       <ul grid grid-cols-2 gap-x-12 gap-y-0 h-60px mb-6 text-white>
         <li
-          v-for="item in props.yuhun.randomAttrs"
-          :key="item.type"
+          v-for="item in yuhunStore.getAttrsByUlid(props.yuhun.ulid)"
+          :key="item[0]"
           flex
           justify-between
           w-140px
           text-16px
         >
-          <span>{{ item.name }}</span>
-          <span>+{{ getValueWithFmt(item.val, item.type) }}</span>
+          <span>{{ AttrMap.get(item[0]) }}</span>
+          <span>+{{ getValueWithFmt(item[1], item[0]) }}</span>
         </li>
       </ul>
       <div flex justify-between items-center>
@@ -48,13 +59,13 @@
             h-8
             w-8
             rounded-lg
-            :class="nextLevel === level ? 'bg-red-400' : 'bg-yellow-400'"
-            @click="nextLevel = level"
+            :class="calcClassName(level)"
+            @click="onLevelClick(level)"
           >
             {{ level }}
           </button>
         </div>
-        <button yys-btn float-right>强 化</button>
+        <button yys-btn float-right @click="onStrength">强 化</button>
       </div>
     </div>
   </div>
@@ -63,6 +74,8 @@
 <script setup lang="ts">
   import type { IGeneYuhun } from '@/core/geneYuhun';
   import { getValueWithFmt } from '@/core/geneYuhun';
+  import { AttrMap } from '@/data/translateMap';
+  import useYuhunStore from '@/store/modules/useYuhunStore';
 
   const props = defineProps<{
     yuhun: IGeneYuhun;
@@ -70,6 +83,22 @@
 
   const levels = [3, 6, 9, 12, 15];
   const nextLevel = ref<number>(15);
+
+  const yuhunStore = useYuhunStore();
+
+  function onStrength() {
+    yuhunStore.levelUpYuhun(props.yuhun.ulid, nextLevel.value);
+  }
+
+  function onLevelClick(level: number) {
+    if (level <= props.yuhun.level) return;
+    nextLevel.value = level;
+  }
+
+  function calcClassName(level: number) {
+    if (level <= props.yuhun.level) return 'bg-gray-500 text-white';
+    return nextLevel.value === level ? 'bg-red-400' : 'bg-yellow-400';
+  }
 </script>
 
 <style scoped lang="scss"></style>

@@ -10,6 +10,7 @@ import type { Pos, IAttr, IYuhun, IAttrInfo } from '@/core/types';
 import { EAttrType } from '@/core/types';
 import { round } from '@/utils/format';
 import { ulid } from 'ulid';
+import { randVal } from '@/utils/random';
 
 export interface IYuhunParams {
   pos?: Pos;
@@ -21,6 +22,7 @@ export interface IGeneYuhun {
   pos: Pos;
   suit: IYuhun;
   randomAttrs: IAttr[];
+  strengthAttrs: IAttr[];
   mainAttr: IAttrInfo;
   isLock: boolean;
   ulid: string;
@@ -62,6 +64,7 @@ export const geneYuhun = (params: IYuhunParams): IGeneYuhun => {
     isLock: false,
     ulid: ulid(),
     level: 0,
+    strengthAttrs: [],
   };
   return result;
 };
@@ -73,10 +76,6 @@ const geneRandomAttrs = (): IAttr[] => {
     val: randVal(item.growth),
     type: item.value,
   }));
-};
-
-const randVal = (growth: [number, number]) => {
-  return growth[0] + Math.random() * (growth[1] - growth[0]);
 };
 
 const mainAttrWithPos = (pos: Pos) => {

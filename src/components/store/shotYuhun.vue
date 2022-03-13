@@ -33,11 +33,11 @@
           bg-gradient-to-r
           text-white
           text-center
-          w-30px
+          w-36px
           text-12px
           py-1
         >
-          +0
+          +{{ props.yuhun.level }}
         </div>
         <img :src="`/static/images/yuhun-mini/${props.yuhun.suit.id}.png`" w-54px pb-2 />
         <LevelCom :size="12" absolute bottom-1 pb-0 />

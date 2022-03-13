@@ -25,9 +25,13 @@
           }}
         </span>
       </li>
-      <li v-for="(item, i) in props.yuhun.randomAttrs" :key="i" class="attr-item">
-        <span>{{ item.name }}</span>
-        <span>+{{ getValueWithFmt(item.val, item.type) }}</span>
+      <li
+        v-for="item in yuhunStore.getAttrsByUlid(props.yuhun.ulid)"
+        :key="item[0]"
+        class="attr-item"
+      >
+        <span>{{ AttrMap.get(item[0]) }}</span>
+        <span>+{{ getValueWithFmt(item[1], item[0]) }}</span>
       </li>
     </ul>
 
@@ -42,10 +46,14 @@
 <script setup lang="ts">
   import type { IGeneYuhun } from '@/core/geneYuhun';
   import { getValueWithFmt } from '@/core/geneYuhun';
+  import { AttrMap } from '@/data/translateMap';
+  import useYuhunStore from '@/store/modules/useYuhunStore';
 
   const props = defineProps<{
     yuhun: IGeneYuhun;
   }>();
+
+  const yuhunStore = useYuhunStore();
 </script>
 
 <style lang="scss" scoped>
