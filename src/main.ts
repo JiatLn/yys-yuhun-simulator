@@ -4,13 +4,12 @@ import { createPinia } from 'pinia';
 import App from './App.vue';
 import router from './router';
 
+// init pinia
 import { initStore } from '@/app/initStore';
 
-import 'uno.css';
-import '@unocss/reset/tailwind.css';
+// global styles import
+import '@/styles/global';
 import '@purge-icons/generated';
-import '@/assets/styles/_global.scss';
-import 'ant-design-vue/es/message/style/css';
 
 const app = createApp(App);
 const pinia = createPinia();

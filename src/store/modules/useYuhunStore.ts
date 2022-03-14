@@ -90,6 +90,9 @@ const useYuhunStore = defineStore({
       yuhun.level = 0;
       yuhun.resetTimes++;
     },
+    clearYuhunStore() {
+      this.geneList = [];
+    },
   },
 });
 

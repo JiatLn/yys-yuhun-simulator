@@ -3,7 +3,7 @@
 html,
 body {
   @apply w-full h-full;
-  // @include scroll();
+  @include scroll();
 }
 
 #app {
