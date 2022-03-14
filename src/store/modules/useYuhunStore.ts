@@ -24,7 +24,9 @@ const useYuhunStore = defineStore({
     },
     getYuhunBySuitId(state: IYuhunStore) {
       return (suitId: number): IGeneYuhun[] =>
-        state.geneList.filter((item) => item.suit.id === suitId);
+        state.geneList
+          .filter((item) => item.suit.id === suitId)
+          .sort((a, b) => b.timestemp - a.timestemp);
     },
     getYuhunByUlid(state: IYuhunStore) {
       return (ulid: string): IGeneYuhun => state.geneList.find((item) => item.ulid === ulid)!;
@@ -44,13 +46,12 @@ const useYuhunStore = defineStore({
   },
   actions: {
     addYuhun(yuhun: IGeneYuhun) {
-      this.geneList.push(yuhun);
+      this.geneList.unshift(yuhun);
     },
+    // 解锁/加锁
     updateLock(ulid: string) {
-      let idx = this.geneList.findIndex((item) => item.ulid === ulid);
-      if (idx !== -1) {
-        this.geneList[idx].isLock = !this.geneList[idx].isLock;
-      }
+      let yuhun = this.getYuhunByUlid(ulid)!;
+      yuhun.isLock = !yuhun.isLock;
     },
     // 强化
     levelUpYuhun(ulid: string, nextLevel: number) {
@@ -81,6 +82,13 @@ const useYuhunStore = defineStore({
           });
         }
       }
+    },
+    // 重置御魂强化
+    resetYuhun(ulid: string) {
+      let yuhun = this.getYuhunByUlid(ulid)!;
+      yuhun.strengthAttrs = [];
+      yuhun.level = 0;
+      yuhun.resetTimes++;
     },
   },
 });

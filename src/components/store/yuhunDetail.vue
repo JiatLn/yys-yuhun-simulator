@@ -65,7 +65,10 @@
             {{ level }}
           </button>
         </div>
-        <button yys-btn float-right @click="onStrength">强 化</button>
+        <button v-if="props.yuhun.level !== 15" yys-btn float-right @click="onStrength">
+          强 化
+        </button>
+        <button v-else yys-btn float-right @click="onReset">重 置</button>
       </div>
     </div>
   </div>
@@ -98,6 +101,10 @@
   function calcClassName(level: number) {
     if (level <= props.yuhun.level) return 'bg-gray-500 text-white';
     return nextLevel.value === level ? 'bg-red-400' : 'bg-yellow-400';
+  }
+
+  function onReset() {
+    yuhunStore.resetYuhun(props.yuhun.ulid);
   }
 </script>
 

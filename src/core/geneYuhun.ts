@@ -19,14 +19,16 @@ export interface IYuhunParams {
 }
 
 export interface IGeneYuhun {
-  pos: Pos;
-  suit: IYuhun;
-  randomAttrs: IAttr[];
+  readonly timestemp: number;
+  readonly ulid: string;
+  readonly pos: Pos;
+  readonly suit: IYuhun;
+  readonly randomAttrs: IAttr[];
+  readonly mainAttr: IAttrInfo;
   strengthAttrs: IAttr[];
-  mainAttr: IAttrInfo;
   isLock: boolean;
-  ulid: string;
   level: number;
+  resetTimes: number;
 }
 
 export type GeneType = 'all' | 'chief' | 'water' | 'base';
@@ -57,6 +59,7 @@ export const geneYuhun = (params: IYuhunParams): IGeneYuhun => {
   // 随机主属性
   const mainAttr = pickN(mainAttrWithPos(pos));
   const result: IGeneYuhun = {
+    timestemp: Date.now(),
     pos,
     suit,
     randomAttrs,
@@ -65,6 +68,7 @@ export const geneYuhun = (params: IYuhunParams): IGeneYuhun => {
     ulid: ulid(),
     level: 0,
     strengthAttrs: [],
+    resetTimes: 0,
   };
   return result;
 };
