@@ -6,10 +6,8 @@ export interface IUserInfo {
   id: string;
 }
 
-export const USER_KEY = 'user';
-
 const useUserStore = defineStore({
-  id: USER_KEY,
+  id: 'user',
   state: (): IUserInfo => {
     return {
       token: '',
@@ -35,7 +33,7 @@ const useUserStore = defineStore({
         name: '',
         id: '',
       };
-      localStorage.removeItem(USER_KEY);
+      localStorage.removeItem(this.$id);
     },
     isLogin() {
       return this.token !== '';

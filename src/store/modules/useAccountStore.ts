@@ -9,10 +9,8 @@ export interface IAccount {
   chief: number;
 }
 
-export const ACCOUNT_KEY = 'account';
-
 const useAccountStore = defineStore({
-  id: ACCOUNT_KEY,
+  id: 'account',
   state: (): IAccount => {
     return {
       golden: 10000,

@@ -9,28 +9,25 @@ export interface IYuhunStore {
   geneList: IGeneYuhun[];
 }
 
-export const YUHUN_KEY = 'yuhun';
-
 const useYuhunStore = defineStore({
-  id: YUHUN_KEY,
+  id: 'yuhun',
   state: (): IYuhunStore => ({ geneList: [] }),
   getters: {
-    yuhunCount(state: IYuhunStore) {
+    yuhunCount(state: IYuhunStore): number {
       return state.geneList.length;
+    },
+    lockCount(state: IYuhunStore): number {
+      return state.geneList.filter((item) => item.isLock).length;
     },
     getCountById(state: IYuhunStore) {
       return (id: number) => state.geneList.filter((item) => item.suit.id === id).length;
-    },
-    lockCount(state: IYuhunStore) {
-      return state.geneList.filter((item) => item.isLock).length;
     },
     getYuhunBySuitId(state: IYuhunStore) {
       return (suitId: number): IGeneYuhun[] =>
         state.geneList.filter((item) => item.suit.id === suitId);
     },
     getYuhunByUlid(state: IYuhunStore) {
-      return (ulid: string): IGeneYuhun | undefined =>
-        state.geneList.find((item) => item.ulid === ulid);
+      return (ulid: string): IGeneYuhun => state.geneList.find((item) => item.ulid === ulid)!;
     },
     getAttrsByUlid(state: IYuhunStore) {
       return (ulid: string): Map<EAttrType, number> => {
@@ -60,7 +57,8 @@ const useYuhunStore = defineStore({
       let yuhun = this.getYuhunByUlid(ulid)!;
       if (nextLevel <= yuhun.level) return;
       let upTimes = (nextLevel - yuhun.level) / 3;
-      for (let i = 0; i < upTimes; i++) {
+      while (upTimes) {
+        upTimes--;
         let attrCount = new Set<EAttrType>(
           yuhun.randomAttrs.concat(yuhun.strengthAttrs).map((item) => item.type)
         ).size;
@@ -74,7 +72,7 @@ const useYuhunStore = defineStore({
             type: randomAttr.type,
           });
         } else {
-          // 随机新增属性
+          // 在全部属性中随机新增属性
           let randomAttr = pickN(randomAttrOpts);
           yuhun.strengthAttrs.push({
             name: randomAttr.label,
@@ -89,10 +87,9 @@ const useYuhunStore = defineStore({
 
 export const initYuhunStore = () => {
   const instance = useYuhunStore();
-  instance.$subscribe((mutation: unknown, state: IYuhunStore) => {
+  instance.$subscribe((mutation, state: IYuhunStore) => {
     localStorage.setItem(instance.$id, JSON.stringify(state));
   });
-
   const val = localStorage.getItem(instance.$id);
   if (val) {
     instance.$patch(JSON.parse(val));

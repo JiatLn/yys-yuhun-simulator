@@ -1,3 +1,6 @@
+export type Pos = 1 | 2 | 3 | 4 | 5 | 6;
+export type ScoreType = 'A' | 'F' | 'M' | 'D' | 'B' | 'S';
+
 export interface IAttrInfo {
   label: string;
   value: EAttrType;
@@ -18,8 +21,6 @@ export interface IYuhun {
   isChief?: boolean;
 }
 
-export type Pos = 1 | 2 | 3 | 4 | 5 | 6;
-
 export interface IAttr {
   name: string;
   val: number;
@@ -39,5 +40,3 @@ export enum EAttrType {
   HP_RATE = 'HpRate',
   SPEED = 'Speed',
 }
-
-export type ScoreType = 'A' | 'F' | 'M' | 'D' | 'B' | 'S';
