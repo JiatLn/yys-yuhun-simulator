@@ -448,13 +448,13 @@ export const mainAttrOpts: IAttrInfo[] = [
   },
 ];
 
-// TODO: 小属性的成长区间有待考证
+// 成长属性参考：https://bbs.nga.cn/read.php?tid=15556177
 export const randomAttrOpts: IAttrInfo[] = [
   ...mainAttrOpts,
   {
     label: '攻击',
     value: EAttrType.ATTACK,
-    growth: [24, 27],
+    growth: [21.6, 27],
     posList: [1],
     mainVal: '486',
     baseVal: 81,
@@ -463,7 +463,7 @@ export const randomAttrOpts: IAttrInfo[] = [
   {
     label: '生命',
     value: EAttrType.HP,
-    growth: [24, 27],
+    growth: [91.2, 114],
     posList: [5],
     mainVal: '2052',
     baseVal: 342,
@@ -472,7 +472,7 @@ export const randomAttrOpts: IAttrInfo[] = [
   {
     label: '防御',
     value: EAttrType.DEF,
-    growth: [3, 5],
+    growth: [4, 5],
     posList: [3],
     mainVal: '104',
     baseVal: 14,
