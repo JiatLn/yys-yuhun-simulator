@@ -1,27 +1,14 @@
-### 如何开始
+### 阴阳师赌魂强魂模拟器
 
-```bash
-# 安装依赖
-pnpm install
+在线体验 👉： [御魂模拟器](http://www.yuhun.store/)
 
-# 启动项目
-npm run dev
-```
+- [x] 金蛇皮兑换指定位置的御魂
+- [x] 御魂参考可以强化御魂
+- [x] 重置 +15 的御魂
+- [x] 清空御魂仓库
 
-# 相关技术栈
+#### todo
 
-- [vue@3.2](https://v3.cn.vuejs.org/guide/introduction.html)
-
-- [typescript](https://www.tslang.cn/docs/home.html)
-
-- [icon](https://icon-sets.iconify.design/)
-
-- [windicss](https://windicss.org/guide/)
-
-- [Pinia](https://pinia.vuejs.org/introduction.html)
-
-- [vite2](https://vitejs.cn/guide/)
-
-- [vue-router@4](https://next.router.vuejs.org/)
-
-- [dayjs](https://dayjs.gitee.io/zh-CN/)
+- [ ] 弃置御魂
+- [ ] 逢魔皮赌魂
+- [ ] 使用放大镜看小数点
