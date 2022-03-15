@@ -11,7 +11,7 @@
     <div class="yuhun-items">
       <div v-for="item in goldenYuhunSet" :key="item.id" flex-c flex-col>
         <div w-120px cursor-pointer @click="onClick(item.id)">
-          <img :src="`/static/images/yuhun/${item.name}.png`" h-full />
+          <LazyImg :src="`/static/images/yuhun/${item.name}.png`" class="h-full" />
         </div>
         <div text-16px>{{ item.name }}</div>
       </div>

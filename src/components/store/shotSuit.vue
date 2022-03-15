@@ -16,7 +16,7 @@
       {{ yuhunStore.getCountBySuitId(props.suit.id) }}
     </span>
     <div w-72px mx-16px>
-      <img :src="`/static/images/yuhun/${props.suit.name}.png`" alt="" w-full />
+      <LazyImg :src="`/static/images/yuhun/${props.suit.name}.png`" class="w-full" />
     </div>
 
     <div flex flex-col flex-1 space-y-1>
