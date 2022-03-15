@@ -44,7 +44,7 @@
           :key="item[0]"
           flex
           justify-between
-          w-140px
+          w-160px
           text-16px
         >
           <span>{{ AttrMap.get(item[0]) }}</span>

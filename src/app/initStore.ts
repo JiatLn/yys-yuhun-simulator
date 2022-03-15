@@ -1,7 +1,8 @@
-import { initUserStore, initAccountStore, initYuhunStore } from '@/store';
+import { initUserStore, initAccountStore, initYuhunStore, initConfigStore } from '@/store';
 
 export const initStore = () => {
   initUserStore();
   initAccountStore();
   initYuhunStore();
+  initConfigStore();
 };

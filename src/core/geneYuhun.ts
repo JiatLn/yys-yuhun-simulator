@@ -11,6 +11,7 @@ import { EAttrType } from '@/core/types';
 import { round } from '@/utils/format';
 import { ulid } from 'ulid';
 import { randVal } from '@/utils/random';
+import useConfigStore from '@/store/modules/useConfigStore';
 
 export interface IYuhunParams {
   pos?: Pos;
@@ -86,7 +87,12 @@ const mainAttrWithPos = (pos: Pos) => {
   return randomAttrOpts.filter((item) => item.posList.includes(pos));
 };
 
-export const getValueWithFmt = (value: number, type: EAttrType, digit: number = 0) => {
+export const getValueWithFmt = (value: number, type: EAttrType) => {
+  let digit = 0;
+  const configStore = useConfigStore();
+  if (configStore.showDigit) {
+    digit = 4;
+  }
   if (value === 0) return '-';
   if (
     [
