@@ -13,27 +13,27 @@ const useYuhunStore = defineStore({
   id: 'yuhun',
   state: (): IYuhunStore => ({ geneList: [] }),
   getters: {
-    yuhunCount(state: IYuhunStore): number {
-      return state.geneList.length;
+    yuhunCount(): number {
+      return this.geneList.length;
     },
-    lockCount(state: IYuhunStore): number {
-      return state.geneList.filter((item) => item.isLock).length;
+    lockCount(): number {
+      return this.geneList.filter((item) => item.isLock).length;
     },
-    getCountById(state: IYuhunStore) {
-      return (id: number) => state.geneList.filter((item) => item.suit.id === id).length;
+    getCountBySuitId() {
+      return (suitId: number) => this.geneList.filter((item) => item.suit.id === suitId).length;
     },
-    getYuhunBySuitId(state: IYuhunStore) {
+    getYuhunBySuitId() {
       return (suitId: number): IGeneYuhun[] =>
-        state.geneList
+        this.geneList
           .filter((item) => item.suit.id === suitId)
           .sort((a, b) => b.timestemp - a.timestemp);
     },
-    getYuhunByUlid(state: IYuhunStore) {
-      return (ulid: string): IGeneYuhun => state.geneList.find((item) => item.ulid === ulid)!;
+    getYuhunByUlid() {
+      return (ulid: string): IGeneYuhun => this.geneList.find((item) => item.ulid === ulid)!;
     },
-    getAttrsByUlid(state: IYuhunStore) {
+    getAttrsByUlid() {
       return (ulid: string): Map<EAttrType, number> => {
-        let target = state.geneList.find((item) => item.ulid === ulid);
+        let target = this.geneList.find((item) => item.ulid === ulid);
         let attrsMap = new Map<EAttrType, number>();
         target?.randomAttrs.concat(target.strengthAttrs).forEach((item) => {
           let att = attrsMap.get(item.type);

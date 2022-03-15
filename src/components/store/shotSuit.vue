@@ -13,7 +13,7 @@
       text-12px
       py-1
     >
-      {{ yuhunStore.getCountById(props.suit.id) }}
+      {{ yuhunStore.getCountBySuitId(props.suit.id) }}
     </span>
     <div w-72px mx-16px>
       <img :src="`/static/images/yuhun/${props.suit.name}.png`" alt="" w-full />
