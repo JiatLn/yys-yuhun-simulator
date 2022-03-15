@@ -1,5 +1,5 @@
 <template>
-  <div flex-c h-100px border cursor-pointer bg-white border-4 border-yellow-500 relative shadow-lg>
+  <div flex-c h-100px cursor-pointer bg-white border-4 border-yellow-500 relative shadow-lg>
     <span
       absolute
       right-0

@@ -15,6 +15,21 @@
             <a-empty v-if="!yuhunList.length" :image="Empty.PRESENTED_IMAGE_SIMPLE">
               <template #description>
                 <p py-4 text-white>暂无该种类的御魂</p>
+                <a-button
+                  text-white
+                  mr-4
+                  hover="text-black border-none "
+                  @click="currentSuit = undefined"
+                >
+                  返回
+                </a-button>
+                <a-button
+                  text-white
+                  hover="text-black border-none"
+                  @click="router.push({ name: 'Home' })"
+                >
+                  去赌魂
+                </a-button>
               </template>
             </a-empty>
             <div v-else class="yuhun-items">
@@ -44,13 +59,17 @@
   import useYuhunStore from '@/store/modules/useYuhunStore';
   import { Empty } from 'ant-design-vue/es';
 
-  const activeTab = ref<string>('suit');
+  const router = useRouter();
   const yuhunStore = useYuhunStore();
+
+  const activeTab = ref<string>('suit');
   const currentSuit = ref<number | undefined>(undefined);
+
   const onTabClick = () => {
     currentSuit.value = undefined;
     currentYuhun.value = undefined;
   };
+
   const yuhunList = computed((): IGeneYuhun[] => {
     if (!currentSuit.value) {
       return [];
