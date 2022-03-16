@@ -58,7 +58,8 @@ export const geneYuhun = (params: IYuhunParams): IGeneYuhun => {
   // 随机属性 2-4条
   const randomAttrs = geneRandomAttrs();
   // 随机主属性
-  const mainAttr = pickN(mainAttrWithPos(pos));
+  // https://yys.163.com/news/notice/2017/05/01/25369_665793.html
+  const mainAttr = pickWithWight(mainAttrWithPos(pos));
   const result: IGeneYuhun = {
     timestemp: Date.now(),
     pos,
@@ -75,6 +76,7 @@ export const geneYuhun = (params: IYuhunParams): IGeneYuhun => {
 };
 
 const geneRandomAttrs = (): IAttr[] => {
+  // 假设2-4条属性出现的概率均为1/3
   let attrNum = ~~(Math.random() * 3 + 2); // 2, 3, 4
   return pickN(randomAttrOpts, attrNum).map((item) => ({
     name: item.label,
@@ -109,3 +111,9 @@ export const getValueWithFmt = (value: number, type: EAttrType) => {
   }
   return `${round(value, digit)}`;
 };
+
+// TODO: 权重算法待优化
+function pickWithWight(arr: IAttrInfo[]): IAttrInfo {
+  const attrs = arr.map((item) => new Array(item.weight).fill(item)).flat();
+  return pickN(attrs);
+}

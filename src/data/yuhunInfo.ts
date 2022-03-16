@@ -382,6 +382,7 @@ export const mainAttrOpts: IAttrInfo[] = [
     mainVal: '55%',
     baseVal: 10,
     levelStep: 3,
+    weight: 30,
   },
   {
     label: '速度',
@@ -391,6 +392,7 @@ export const mainAttrOpts: IAttrInfo[] = [
     mainVal: '57',
     baseVal: 12,
     levelStep: 3,
+    weight: 10,
   },
   {
     label: '暴击',
@@ -400,6 +402,7 @@ export const mainAttrOpts: IAttrInfo[] = [
     mainVal: '55%',
     baseVal: 10,
     levelStep: 3,
+    weight: 5,
   },
   {
     label: '暴击伤害',
@@ -409,6 +412,7 @@ export const mainAttrOpts: IAttrInfo[] = [
     mainVal: '89%',
     baseVal: 14,
     levelStep: 5,
+    weight: 5,
   },
   {
     label: '防御加成',
@@ -418,6 +422,7 @@ export const mainAttrOpts: IAttrInfo[] = [
     mainVal: '55%',
     baseVal: 10,
     levelStep: 3,
+    weight: 30,
   },
   {
     label: '生命加成',
@@ -427,6 +432,7 @@ export const mainAttrOpts: IAttrInfo[] = [
     mainVal: '55%',
     baseVal: 10,
     levelStep: 3,
+    weight: 30,
   },
   {
     label: '效果命中',
@@ -436,6 +442,7 @@ export const mainAttrOpts: IAttrInfo[] = [
     mainVal: '55%',
     baseVal: 10,
     levelStep: 3,
+    weight: 5,
   },
   {
     label: '效果抵抗',
@@ -445,6 +452,7 @@ export const mainAttrOpts: IAttrInfo[] = [
     mainVal: '55%',
     baseVal: 10,
     levelStep: 3,
+    weight: 5,
   },
 ];
 
@@ -459,6 +467,7 @@ export const randomAttrOpts: IAttrInfo[] = [
     mainVal: '486',
     baseVal: 81,
     levelStep: 27,
+    weight: 100,
   },
   {
     label: '生命',
@@ -468,6 +477,7 @@ export const randomAttrOpts: IAttrInfo[] = [
     mainVal: '2052',
     baseVal: 342,
     levelStep: 114,
+    weight: 100,
   },
   {
     label: '防御',
@@ -477,6 +487,7 @@ export const randomAttrOpts: IAttrInfo[] = [
     mainVal: '104',
     baseVal: 14,
     levelStep: 6,
+    weight: 100,
   },
 ];
 

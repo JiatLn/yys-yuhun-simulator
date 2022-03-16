@@ -1,5 +1,4 @@
 export type Pos = 1 | 2 | 3 | 4 | 5 | 6;
-export type ScoreType = 'A' | 'F' | 'M' | 'D' | 'B' | 'S';
 
 export interface IAttrInfo {
   label: string;
@@ -9,6 +8,7 @@ export interface IAttrInfo {
   mainVal: string;
   baseVal: number;
   levelStep: number;
+  weight: number;
 }
 
 export interface IYuhun {
