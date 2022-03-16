@@ -90,8 +90,9 @@ const useYuhunStore = defineStore({
       yuhun.level = 0;
       yuhun.resetTimes++;
     },
+    // 只保留上锁的御魂
     clearYuhunStore() {
-      this.geneList = [];
+      this.geneList = this.geneList.filter((item) => item.isLock);
     },
   },
 });
