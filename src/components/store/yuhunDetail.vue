@@ -79,6 +79,7 @@
   import { getValueWithFmt } from '@/core/geneYuhun';
   import { AttrMap } from '@/data/translateMap';
   import useYuhunStore from '@/store/modules/useYuhunStore';
+  import { notification } from 'ant-design-vue/es';
 
   const props = defineProps<{
     yuhun: IGeneYuhun;
@@ -104,6 +105,13 @@
   }
 
   function onReset() {
+    let times = props.yuhun.resetTimes;
+    if (times % 50 === 0) {
+      notification.open({
+        message: '阴阳师SAMA',
+        description: `这御魂已经被你重置${times}次了，休息一下吧。`,
+      });
+    }
     yuhunStore.resetYuhun(props.yuhun.ulid);
   }
 </script>
