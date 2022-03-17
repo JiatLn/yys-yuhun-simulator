@@ -1,29 +1,29 @@
-import { EAttrType } from '@/core/types';
+import { EAttr } from '@/core/types';
 
-export const AttrMap: Map<EAttrType | undefined, string> = new Map([
-  [EAttrType.ATTACK, '攻击'],
-  [EAttrType.ATTACK_RATE, '攻击加成'],
-  [EAttrType.CRIT_POWER, '暴击伤害'],
-  [EAttrType.CRIT_RATE, '暴击'],
-  [EAttrType.DEF, '防御'],
-  [EAttrType.DEF_RATE, '防御加成'],
-  [EAttrType.EFFECT_HIT, '效果命中'],
-  [EAttrType.EFFECT_RESIST, '效果抵抗'],
-  [EAttrType.HP, '生命'],
-  [EAttrType.HP_RATE, '生命加成'],
-  [EAttrType.SPEED, '速度'],
+export const AttrMap: Map<EAttr | undefined, string> = new Map([
+  [EAttr.ATTACK, '攻击'],
+  [EAttr.ATTACK_RATE, '攻击加成'],
+  [EAttr.CRIT_POWER, '暴击伤害'],
+  [EAttr.CRIT_RATE, '暴击'],
+  [EAttr.DEF, '防御'],
+  [EAttr.DEF_RATE, '防御加成'],
+  [EAttr.EFFECT_HIT, '效果命中'],
+  [EAttr.EFFECT_RESIST, '效果抵抗'],
+  [EAttr.HP, '生命'],
+  [EAttr.HP_RATE, '生命加成'],
+  [EAttr.SPEED, '速度'],
 ]);
 
-export const AttrSimpleMap: Map<EAttrType, string> = new Map([
-  [EAttrType.ATTACK, '攻'],
-  [EAttrType.ATTACK_RATE, '攻'],
-  [EAttrType.CRIT_POWER, '爆'],
-  [EAttrType.CRIT_RATE, '暴'],
-  [EAttrType.DEF, '防'],
-  [EAttrType.DEF_RATE, '防'],
-  [EAttrType.EFFECT_HIT, '命'],
-  [EAttrType.EFFECT_RESIST, '抗'],
-  [EAttrType.HP, '生'],
-  [EAttrType.HP_RATE, '生'],
-  [EAttrType.SPEED, '速'],
+export const AttrSimpleMap: Map<EAttr, string> = new Map([
+  [EAttr.ATTACK, '攻'],
+  [EAttr.ATTACK_RATE, '攻'],
+  [EAttr.CRIT_POWER, '爆'],
+  [EAttr.CRIT_RATE, '暴'],
+  [EAttr.DEF, '防'],
+  [EAttr.DEF_RATE, '防'],
+  [EAttr.EFFECT_HIT, '命'],
+  [EAttr.EFFECT_RESIST, '抗'],
+  [EAttr.HP, '生'],
+  [EAttr.HP_RATE, '生'],
+  [EAttr.SPEED, '速'],
 ]);

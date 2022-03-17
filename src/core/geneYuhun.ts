@@ -4,10 +4,11 @@ import {
   randomAttrOpts,
   waterYuhunSet,
   chiefYuhunSet,
+  singleAttrOpts,
 } from '@/data/yuhunInfo';
 import { pickN } from '@/utils/pick';
-import type { Pos, IAttr, IYuhun, IAttrInfo } from '@/core/types';
-import { EAttrType } from '@/core/types';
+import { EAttr } from '@/core/types';
+import type { Pos, IAttr, IYuhun, IAttrInfo, ISingleAttr } from '@/core/types';
 import { round } from '@/utils/format';
 import { ulid } from 'ulid';
 import { randVal } from '@/utils/random';
@@ -30,6 +31,7 @@ export interface IGeneYuhun {
   isLock: boolean;
   level: number;
   resetTimes: number;
+  singleAttr?: ISingleAttr;
 }
 
 export type GeneType = 'all' | 'chief' | 'water' | 'base';
@@ -72,6 +74,9 @@ export const geneYuhun = (params: IYuhunParams): IGeneYuhun => {
     strengthAttrs: [],
     resetTimes: 0,
   };
+  if (result.suit.isChief) {
+    result.singleAttr = pickN(singleAttrOpts);
+  }
   return result;
 };
 
@@ -89,7 +94,7 @@ const mainAttrWithPos = (pos: Pos) => {
   return randomAttrOpts.filter((item) => item.posList.includes(pos));
 };
 
-export const getValueWithFmt = (value: number, type: EAttrType) => {
+export const getValueWithFmt = (value: number, type: EAttr) => {
   let digit = 0;
   const configStore = useConfigStore();
   if (configStore.showDigit) {
@@ -98,13 +103,13 @@ export const getValueWithFmt = (value: number, type: EAttrType) => {
   if (value === 0) return '-';
   if (
     [
-      EAttrType.CRIT_RATE,
-      EAttrType.CRIT_POWER,
-      EAttrType.ATTACK_RATE,
-      EAttrType.EFFECT_HIT,
-      EAttrType.EFFECT_RESIST,
-      EAttrType.HP_RATE,
-      EAttrType.DEF_RATE,
+      EAttr.CRIT_RATE,
+      EAttr.CRIT_POWER,
+      EAttr.ATTACK_RATE,
+      EAttr.EFFECT_HIT,
+      EAttr.EFFECT_RESIST,
+      EAttr.HP_RATE,
+      EAttr.DEF_RATE,
     ].includes(type)
   ) {
     return `${round(value, digit)}%`;

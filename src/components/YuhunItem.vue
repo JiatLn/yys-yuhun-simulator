@@ -36,9 +36,14 @@
     </ul>
 
     <div pt-8px text-14px flex flex-col leading-5 class="text-#777">
-      <span v-if="!props.yuhun.suit.isChief">2件套属性：{{ props.yuhun.suit.suit2 }}</span>
-      <span v-else>固有属性：{{}}</span>
-      <p>4件套效果：{{ props.yuhun.suit.suit4 }}</p>
+      <template v-if="props.yuhun.suit.isChief">
+        <span>固有属性：{{ props.yuhun.singleAttr?.name }}{{ props.yuhun.singleAttr?.val }}%</span>
+        <p>2件套效果：{{ props.yuhun.suit.suit2 }}</p>
+      </template>
+      <template v-else>
+        <p>2件套属性：{{ props.yuhun.suit.suit2 }}</p>
+        <p>4件套效果：{{ props.yuhun.suit.suit4 }}</p>
+      </template>
     </div>
   </div>
 </template>

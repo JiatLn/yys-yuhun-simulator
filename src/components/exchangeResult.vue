@@ -12,10 +12,10 @@
     @cancel="onCancel"
   >
     <div v-if="!!props.result" class="content" @click="onCancel">
-      <div class="header">购买成功</div>
+      <div text-yellow-200 text-60px font-black mb-10 text-shadow-xl>购买成功</div>
       <div flex-c space-x-30 relative>
         <section flex-c flex-col>
-          <div w-180px cursor-pointer mb--30px pt-30px>
+          <div w-200px cursor-pointer mb--30px pt-30px>
             <img :src="`/static/images/yuhun/${props.result?.suit.name}.png`" w-full />
           </div>
           <LevelCom :size="26" />
@@ -35,8 +35,8 @@
               @click="onLock"
             />
           </div>
-          <ul flex flex-col text-20px gap-1 font-medium>
-            <li flex justify-between w-200px text-red-500>
+          <ul flex flex-col text-20px gap-1 font-medium w-220px>
+            <li flex justify-between text-red-500>
               <div>
                 {{ props.result?.mainAttr.label }}
               </div>
@@ -49,10 +49,13 @@
               :key="index"
               flex
               justify-between
-              w-200px
             >
               <div>{{ item.name }}</div>
               <div>+{{ getValueWithFmt(item.val, item.type) }}</div>
+            </li>
+            <li v-if="props.result.suit.isChief" flex justify-between text-green>
+              <div>固有属性:{{ props.result.singleAttr?.name }}</div>
+              <div>+{{ props.result.singleAttr?.val }}%</div>
             </li>
           </ul>
         </section>
@@ -101,9 +104,6 @@
   .content {
     @apply flex-c flex-col h-full text-white select-none;
     font-family: '楷体';
-    .header {
-      @apply center text-yellow-200 text-60px font-black mb-10;
-    }
   }
 </style>
 

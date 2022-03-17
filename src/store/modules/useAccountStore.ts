@@ -13,7 +13,7 @@ const useAccountStore = defineStore({
   id: 'account',
   state: (): IAccount => {
     return {
-      golden: 10000,
+      golden: 20000,
       purple: 6000,
       water: 8000,
       chief: 3000,

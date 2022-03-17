@@ -1,4 +1,4 @@
-import type { EAttrType } from '@/core/types';
+import type { EAttr } from '@/core/types';
 import { pickN } from '@/utils/pick';
 import type { IGeneYuhun } from '@/core/geneYuhun';
 import { defineStore } from 'pinia';
@@ -32,9 +32,9 @@ const useYuhunStore = defineStore({
       return (ulid: string): IGeneYuhun => this.geneList.find((item) => item.ulid === ulid)!;
     },
     getAttrsByUlid() {
-      return (ulid: string): Map<EAttrType, number> => {
+      return (ulid: string): Map<EAttr, number> => {
         let target = this.geneList.find((item) => item.ulid === ulid);
-        let attrsMap = new Map<EAttrType, number>();
+        let attrsMap = new Map<EAttr, number>();
         target?.randomAttrs.concat(target.strengthAttrs).forEach((item) => {
           let att = attrsMap.get(item.type);
           if (att) attrsMap.set(item.type, att + item.val);
@@ -60,7 +60,7 @@ const useYuhunStore = defineStore({
       let upTimes = (nextLevel - yuhun.level) / 3;
       while (upTimes) {
         upTimes--;
-        let attrCount = new Set<EAttrType>(
+        let attrCount = new Set<EAttr>(
           yuhun.randomAttrs.concat(yuhun.strengthAttrs).map((item) => item.type)
         ).size;
         yuhun.level += 3;

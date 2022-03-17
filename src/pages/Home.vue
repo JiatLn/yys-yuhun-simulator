@@ -12,6 +12,7 @@
         @exchange="onExchange"
       />
       <ExchangeGolden :show="show.golden" @close="show.golden = false" />
+      <ExchangeCheif :show="show.chief" @close="show.chief = false" />
     </div>
   </div>
 </template>
@@ -74,7 +75,7 @@
   });
 
   const onExchange = (type: ICurrencyType) => {
-    if (['water', 'purple', 'chief'].includes(type)) {
+    if (['water', 'purple'].includes(type)) {
       message.info('该功能呢暂未开放，敬请期待(#^.^#)');
       return;
     }

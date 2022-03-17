@@ -106,7 +106,7 @@
 
   function onReset() {
     let times = props.yuhun.resetTimes;
-    if (times % 50 === 0) {
+    if (times % 50 === 0 && times > 0) {
       notification.open({
         message: '阴阳师SAMA',
         description: `这御魂已经被你重置${times}次了，休息一下吧。`,
