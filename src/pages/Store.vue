@@ -53,11 +53,11 @@
 </template>
 
 <script setup lang="ts">
+  import { Empty } from 'ant-design-vue/es';
   import type { IGeneYuhun } from '@/core/geneYuhun';
 
   import { allYuhunSet } from '@/data/yuhunInfo';
   import useYuhunStore from '@/store/modules/useYuhunStore';
-  import { Empty } from 'ant-design-vue/es';
 
   const router = useRouter();
   const yuhunStore = useYuhunStore();

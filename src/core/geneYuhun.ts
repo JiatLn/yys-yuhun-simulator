@@ -1,16 +1,16 @@
+import { ulid } from 'ulid';
 import {
-  baseYuhunSet,
   allYuhunSet,
-  randomAttrOpts,
-  waterYuhunSet,
+  baseYuhunSet,
   chiefYuhunSet,
+  randomAttrOpts,
   singleAttrOpts,
+  waterYuhunSet,
 } from '@/data/yuhunInfo';
 import { pickN } from '@/utils/pick';
 import { EAttr } from '@/core/types';
-import type { Pos, IAttr, IYuhun, IAttrInfo, ISingleAttr } from '@/core/types';
+import type { IAttr, IAttrInfo, ISingleAttr, IYuhun, Pos } from '@/core/types';
 import { round } from '@/utils/format';
-import { ulid } from 'ulid';
 import { randVal } from '@/utils/random';
 import useConfigStore from '@/store/modules/useConfigStore';
 
@@ -82,7 +82,7 @@ export const geneYuhun = (params: IYuhunParams): IGeneYuhun => {
 
 const geneRandomAttrs = (): IAttr[] => {
   // 假设2-4条属性出现的概率均为1/3
-  let attrNum = ~~(Math.random() * 3 + 2); // 2, 3, 4
+  const attrNum = ~~(Math.random() * 3 + 2); // 2, 3, 4
   return pickN(randomAttrOpts, attrNum).map((item) => ({
     name: item.label,
     val: randVal(item.growth),

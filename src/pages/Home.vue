@@ -18,13 +18,13 @@
 </template>
 
 <script setup lang="ts">
+  import { message } from 'ant-design-vue/es';
   import purple from '@/assets/icons/purple.png';
   import golden from '@/assets/icons/golden.png';
   import chief from '@/assets/icons/chief.png';
   import water from '@/assets/icons/water.png';
   import type { ICurrencyType } from '@/store/modules/useAccountStore';
   import useAccountStore from '@/store/modules/useAccountStore';
-  import { message } from 'ant-design-vue/es';
 
   const accountStore = useAccountStore();
 

@@ -1,4 +1,4 @@
-import { initUserStore, initAccountStore, initYuhunStore, initConfigStore } from '@/store';
+import { initAccountStore, initConfigStore, initUserStore, initYuhunStore } from '@/store';
 
 export const initStore = () => {
   initUserStore();

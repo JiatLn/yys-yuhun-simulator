@@ -11,7 +11,7 @@ function pickN<T>(arr: T[], n?: number): T | T[] {
   let len = tmp.length;
   let pickNum = n;
   while (pickNum > 0) {
-    let randomIdx = ~~(Math.random() * len--);
+    const randomIdx = ~~(Math.random() * len--);
     pickList.push(tmp[randomIdx]);
     tmp[randomIdx] = tmp[len];
     pickNum--;

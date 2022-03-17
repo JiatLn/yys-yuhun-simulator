@@ -4,12 +4,8 @@ import requests from './request';
 export interface HTTPConfig {
   url: string;
   method: Method;
-  data?: {
-    [key: string]: unknown;
-  };
-  params?: {
-    [key: string]: unknown;
-  };
+  data?: Record<string, unknown>;
+  params?: Record<string, unknown>;
 }
 
 const useHttp = <T>(config: HTTPConfig): Promise<T> => {

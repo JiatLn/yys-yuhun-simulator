@@ -75,11 +75,11 @@
 </template>
 
 <script setup lang="ts">
+  import { notification } from 'ant-design-vue/es';
   import type { IGeneYuhun } from '@/core/geneYuhun';
   import { getValueWithFmt } from '@/core/geneYuhun';
   import { AttrMap } from '@/data/translateMap';
   import useYuhunStore from '@/store/modules/useYuhunStore';
-  import { notification } from 'ant-design-vue/es';
 
   const props = defineProps<{
     yuhun: IGeneYuhun;
@@ -105,7 +105,7 @@
   }
 
   function onReset() {
-    let times = props.yuhun.resetTimes;
+    const times = props.yuhun.resetTimes;
     if (times % 50 === 0 && times > 0) {
       notification.open({
         message: '阴阳师SAMA',

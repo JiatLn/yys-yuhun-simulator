@@ -57,13 +57,13 @@
 </template>
 
 <script setup lang="ts">
+  import { message } from 'ant-design-vue/es';
   import type { IGeneYuhun } from '@/core/geneYuhun';
   import { geneYuhun } from '@/core/geneYuhun';
   import type { Pos } from '@/core/types';
   import { allYuhunSet, posOpts } from '@/data/yuhunInfo';
   import useAccountStore from '@/store/modules/useAccountStore';
   import useYuhunStore from '@/store/modules/useYuhunStore';
-  import { message } from 'ant-design-vue/es';
 
   const props = defineProps<{
     show: boolean;

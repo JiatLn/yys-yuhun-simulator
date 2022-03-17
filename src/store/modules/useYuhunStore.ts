@@ -1,7 +1,7 @@
+import { defineStore } from 'pinia';
 import type { EAttr } from '@/core/types';
 import { pickN } from '@/utils/pick';
 import type { IGeneYuhun } from '@/core/geneYuhun';
-import { defineStore } from 'pinia';
 import { randomAttrOpts } from '@/data/yuhunInfo';
 import { randVal } from '@/utils/random';
 
@@ -33,10 +33,10 @@ const useYuhunStore = defineStore({
     },
     getAttrsByUlid() {
       return (ulid: string): Map<EAttr, number> => {
-        let target = this.geneList.find((item) => item.ulid === ulid);
-        let attrsMap = new Map<EAttr, number>();
+        const target = this.geneList.find((item) => item.ulid === ulid);
+        const attrsMap = new Map<EAttr, number>();
         target?.randomAttrs.concat(target.strengthAttrs).forEach((item) => {
-          let att = attrsMap.get(item.type);
+          const att = attrsMap.get(item.type);
           if (att) attrsMap.set(item.type, att + item.val);
           else attrsMap.set(item.type, item.val);
         });
@@ -50,23 +50,23 @@ const useYuhunStore = defineStore({
     },
     // 解锁/加锁
     updateLock(ulid: string) {
-      let yuhun = this.getYuhunByUlid(ulid)!;
+      const yuhun = this.getYuhunByUlid(ulid)!;
       yuhun.isLock = !yuhun.isLock;
     },
     // 强化
     levelUpYuhun(ulid: string, nextLevel: number) {
-      let yuhun = this.getYuhunByUlid(ulid)!;
+      const yuhun = this.getYuhunByUlid(ulid)!;
       if (nextLevel <= yuhun.level) return;
       let upTimes = (nextLevel - yuhun.level) / 3;
       while (upTimes) {
         upTimes--;
-        let attrCount = new Set<EAttr>(
+        const attrCount = new Set<EAttr>(
           yuhun.randomAttrs.concat(yuhun.strengthAttrs).map((item) => item.type)
         ).size;
         yuhun.level += 3;
         if (attrCount === 4) {
-          let randomAttr = pickN(yuhun.randomAttrs.concat(yuhun.strengthAttrs));
-          let growth = randomAttrOpts.find((item) => item.value === randomAttr.type)!.growth;
+          const randomAttr = pickN(yuhun.randomAttrs.concat(yuhun.strengthAttrs));
+          const growth = randomAttrOpts.find((item) => item.value === randomAttr.type)!.growth;
           yuhun.strengthAttrs.push({
             name: randomAttr.name,
             val: randVal(growth),
@@ -74,7 +74,7 @@ const useYuhunStore = defineStore({
           });
         } else {
           // 在全部属性中随机新增属性
-          let randomAttr = pickN(randomAttrOpts);
+          const randomAttr = pickN(randomAttrOpts);
           yuhun.strengthAttrs.push({
             name: randomAttr.label,
             val: randVal(randomAttr.growth),
@@ -85,7 +85,7 @@ const useYuhunStore = defineStore({
     },
     // 重置御魂强化
     resetYuhun(ulid: string) {
-      let yuhun = this.getYuhunByUlid(ulid)!;
+      const yuhun = this.getYuhunByUlid(ulid)!;
       yuhun.strengthAttrs = [];
       yuhun.level = 0;
       yuhun.resetTimes++;

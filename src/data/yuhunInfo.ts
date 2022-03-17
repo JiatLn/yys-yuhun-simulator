@@ -1,6 +1,5 @@
 import type { IAttrInfo, ISingleAttr, IYuhun } from '@/core/types';
-import { ESingleAttr } from '@/core/types';
-import { EAttr } from '@/core/types';
+import { EAttr, ESingleAttr } from '@/core/types';
 
 export const allYuhunSet: IYuhun[] = [
   {

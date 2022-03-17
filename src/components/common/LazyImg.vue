@@ -19,8 +19,8 @@
       // If intersectionRatio is 0, the target is out of view
       // and we do not need to do anything.
       if (entries[0].intersectionRatio <= 0) return;
-      let imgEl = entries[0].target as HTMLImageElement;
-      let newImg = document.createElement('img');
+      const imgEl = entries[0].target as HTMLImageElement;
+      const newImg = document.createElement('img');
       newImg.src = props.src;
       newImg.onload = () => {
         imgEl.src = props.src;

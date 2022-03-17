@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@ant-design/icons-vue": "^6.0.1",
+    "@antfu/eslint-config": "^0.18.8",
     "@iconify/iconify": "^2.1.1",
     "@unocss/reset": "^0.28.0",
     "@unocss/transformer-directives": "^0.28.0",

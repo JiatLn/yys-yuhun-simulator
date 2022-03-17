@@ -18,10 +18,10 @@
 </template>
 
 <script setup lang="ts">
-  import useConfigStore from '@/store/modules/useConfigStore';
-  import useYuhunStore from '@/store/modules/useYuhunStore';
   import { Modal } from 'ant-design-vue/es';
   import { storeToRefs } from 'pinia';
+  import useConfigStore from '@/store/modules/useConfigStore';
+  import useYuhunStore from '@/store/modules/useYuhunStore';
 
   const router = useRouter();
   const route = useRoute();
