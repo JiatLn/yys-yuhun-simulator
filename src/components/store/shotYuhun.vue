@@ -78,10 +78,10 @@
   };
 
   const emits = defineEmits<{
-    (e: 'click', ulid: string): void;
+    (e: 'yuhunClick', ulid: string): void;
   }>();
   const onClick = () => {
-    emits('click', props.yuhun.ulid);
+    emits('yuhunClick', props.yuhun.ulid);
   };
 </script>
 

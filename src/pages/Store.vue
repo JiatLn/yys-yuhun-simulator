@@ -38,7 +38,7 @@
                 :key="item.ulid"
                 :yuhun="item"
                 :is-selected="item.ulid === currentYuhun?.ulid"
-                @click="onPopoverClick"
+                @yuhun-click="onPopoverClick"
               />
             </div>
           </div>
