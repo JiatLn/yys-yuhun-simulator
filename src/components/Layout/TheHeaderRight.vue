@@ -3,7 +3,7 @@
     <a-popover placement="bottom" overlay-class-name="sponsor-popover">
       <template #content>
         <p text-center pt-4 pb-2 text="16px #07c160">打开微信扫一扫</p>
-        <LazyImg src="/src/assets/images/sponsor.jpg" w-260px />
+        <LazyImg src="/static/images/sponsor.jpg" w-260px />
       </template>
       <AppIcon icon="icomoon-free:coin-yen" text-24px text-light-50 cursor-pointer />
     </a-popover>
