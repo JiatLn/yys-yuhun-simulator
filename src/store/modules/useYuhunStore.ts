@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import type { EAttr } from '@/core/types';
+import type { EAttr, Pos } from '@/core/types';
 import { pickN } from '@/utils/pick';
 import type { IGeneYuhun } from '@/core/geneYuhun';
 import { randomAttrOpts } from '@/data/yuhunInfo';
@@ -30,6 +30,9 @@ const useYuhunStore = defineStore({
     },
     getYuhunByUlid() {
       return (ulid: string): IGeneYuhun => this.geneList.find((item) => item.ulid === ulid)!;
+    },
+    getYuhunByPos() {
+      return (pos: Pos): IGeneYuhun[] => this.geneList.filter((item) => item.pos === pos)!;
     },
     getAttrsByUlid() {
       return (ulid: string): Map<EAttr, number> => {

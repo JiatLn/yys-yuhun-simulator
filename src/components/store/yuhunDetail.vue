@@ -66,9 +66,9 @@
           </button>
         </div>
         <button v-if="props.yuhun.level !== 15" yys-btn float-right @click="onStrength">
-          强 化
+          强化
         </button>
-        <button v-else yys-btn float-right @click="onReset">重 置</button>
+        <button v-else yys-btn float-right @click="onReset">重置</button>
       </div>
     </div>
   </div>

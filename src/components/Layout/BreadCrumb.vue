@@ -29,7 +29,7 @@
   const yuhunStore = useYuhunStore();
   function clearYuhunStore() {
     Modal.confirm({
-      content: '确定清空仓库里的所有御魂吗？',
+      content: '确定清空仓库里的所有未上锁的御魂吗？',
       onOk() {
         yuhunStore.clearYuhunStore();
         Modal.destroyAll();

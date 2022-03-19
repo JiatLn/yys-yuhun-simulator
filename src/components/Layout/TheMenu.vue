@@ -1,7 +1,13 @@
 <template>
   <div class="flex">
     <div class="logo" @click="router.push({ name: 'Home' })">御魂の屋</div>
-    <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="horizontal" leading-64px>
+    <a-menu
+      v-model:selectedKeys="selectedKeys"
+      theme="dark"
+      mode="horizontal"
+      leading-64px
+      min-w-400px
+    >
       <a-menu-item v-for="item in routes" :key="item.name">
         <router-link :to="{ name: item.name }">{{ item.meta?.title }}</router-link>
       </a-menu-item>
