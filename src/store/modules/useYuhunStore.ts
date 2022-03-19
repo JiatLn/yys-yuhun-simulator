@@ -59,6 +59,10 @@ const useYuhunStore = defineStore({
     // 强化
     levelUpYuhun(ulid: string, nextLevel: number) {
       const yuhun = this.getYuhunByUlid(ulid)!;
+      // 强化到15上锁
+      if (nextLevel === 15 && !yuhun.isLock) {
+        this.updateLock(ulid);
+      }
       if (nextLevel <= yuhun.level) return;
       let upTimes = (nextLevel - yuhun.level) / 3;
       while (upTimes) {
